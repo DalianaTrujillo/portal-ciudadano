@@ -1,18 +1,20 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Search, Lock } from 'lucide-react';
 import energiaAmarillaLogo from '../assets/Energía Amarillo.png';
 import './Navbar.css';
 
 const NAV_ITEMS = [
   { id: 'inicio',      label: 'Inicio' },
-  { id: 'ciclo',       label: 'Regalías' },
-  { id: 'entidades',   label: 'Entidades' },
-  { id: 'indicadores', label: 'Indicadores' },
-  { id: 'documental',  label: 'Gestor Documental' },
+  { id: 'ciclo',       label: 'Ciclo de Regalías' },
+  { id: 'entidades',   label: 'Entidades y Temas' },
+  { id: 'indicadores', label: 'Datos e Indicadores' },
+  { id: 'visor',       label: 'Visor Territorial' },
 ];
 
 const Navbar = ({ activePage, onNavigate }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const searchInputRef = useRef(null);
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 10);
@@ -23,6 +25,22 @@ const Navbar = ({ activePage, onNavigate }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
+  useEffect(() => {
+    if (isSearchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [isSearchOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isSearchOpen) {
+        setIsSearchOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isSearchOpen]);
+
   return (
     <header className={`navbar-root${scrolled ? ' is-scrolled' : ''}`}>
 
@@ -32,14 +50,30 @@ const Navbar = ({ activePage, onNavigate }) => {
           <div className="navbar-topbar-right">
             <button
               className="navbar-top-link"
-              onClick={() => onNavigate('aprende')}
+              onClick={() => onNavigate('noticias')}
             >
-              Aprende sobre el sector
+              Noticias y Novedades
             </button>
 
             <button
+              className="navbar-top-link"
+              onClick={() => onNavigate('participa')}
+            >
+              Participa
+            </button>
+
+            {isSearchOpen && (
+              <input
+                ref={searchInputRef}
+                type="text"
+                className="inline-search-input"
+                placeholder="Escriba su búsqueda..."
+              />
+            )}
+
+            <button
               className="navbar-top-btn"
-              onClick={() => onNavigate('buscar')}
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
               aria-label="Buscar en el portal"
             >
               <Search size={16} />

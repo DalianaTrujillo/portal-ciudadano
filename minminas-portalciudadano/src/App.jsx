@@ -15,10 +15,8 @@ import ContactSection from './components/ContactSection';
 import PARSection from './components/PARSection';
 import NewsGrid from './components/NewsGrid';
 import InfographicSection from './components/InfographicSection';
-import { GlossarySection } from './components/GlossaryTooltip';
 import ChatbotCiudadano from './components/ChatbotCiudadano';
 import Footer from './components/Footer';
-import { Search } from 'lucide-react';
 import './App.css';
 
 const PAGES = {
@@ -27,58 +25,11 @@ const PAGES = {
   entidades: 'entidades',
   indicadores: 'indicadores',
   visor: 'visor',
-  aprende: 'aprende',
   participa: 'participa',
   noticias: 'noticias',
-  buscar: 'buscar',
-  documental: 'documental',
 };
 
 const sectionStyle = { padding: '80px 0' };
-
-function SearchPage() {
-  const [query, setQuery] = useState('');
-  return (
-    <section style={{ ...sectionStyle, background: '#F8FAFC', minHeight: '60vh' }}>
-      <div className="container section-inner">
-        <div className="section-header">
-          <h2>Buscar en el portal</h2>
-          <p>Encuentre información sobre el sector minero-energético colombiano.</p>
-        </div>
-        <div style={{ maxWidth: 600, margin: '0 auto' }}>
-          <div style={{
-            display: 'flex', gap: 12, background: '#fff',
-            padding: 8, borderRadius: 12, border: '2px solid #E2E8F0'
-          }}>
-            <input
-              type="text"
-              placeholder="Escriba su búsqueda..."
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              style={{
-                flex: 1, padding: '12px 16px', border: 'none',
-                fontSize: 16, fontWeight: 600, outline: 'none',
-                fontFamily: "'Nunito Sans', sans-serif", background: 'transparent'
-              }}
-            />
-            <button style={{
-              padding: '12px 24px', background: '#203A68', color: '#fff',
-              border: 'none', borderRadius: 8, fontWeight: 700, fontSize: 14,
-              cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8
-            }}>
-              <Search size={16} /> Buscar
-            </button>
-          </div>
-          {query && (
-            <div style={{ marginTop: 32, color: '#64748B', fontSize: 14, textAlign: 'center' }}>
-              Resultados para "<strong>{query}</strong>": funcionalidad en desarrollo.
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function App() {
   const [page, setPage] = useState('inicio');
@@ -107,6 +58,29 @@ function App() {
             <RegionesSection />
             <EventsSection />
             <ContactSection />
+
+            {/* ─── Avance de Noticias en Inicio ─── */}
+            <section className="home-news-section">
+              <div className="container section-inner">
+                <div className="section-header">
+                  <span className="eyebrow">Actualidad del Sector</span>
+                  <h2 className="section-title">Últimas Noticias del Sector</h2>
+                  <p className="section-subtitle">Entérate de las novedades, proyectos y convocatorias del ecosistema minero-energético.</p>
+                </div>
+
+                <NewsGrid limit={3} embedded />
+
+                <div className="section-footer">
+                  <button
+                    onClick={() => handleNavigate('noticias')}
+                    className="btn-outline-gold"
+                  >
+                    Ver todas las noticias →
+                  </button>
+                </div>
+              </div>
+            </section>
+
             <PARSection />
           </>
         )}
@@ -140,33 +114,6 @@ function App() {
           </>
         )}
 
-        {page === 'aprende' && (
-          <section style={sectionStyle}>
-            <div className="container section-inner">
-              <div className="section-header">
-                <span className="eyebrow">Conocimiento</span>
-                <h2>Aprende sobre el sector</h2>
-                <p>Recursos educativos, guías y material de consulta para entender el sector minero-energético colombiano.</p>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 20 }}>
-                <div className="news-masonry-card" style={{ background: '#fff', borderRadius: 12, padding: 24, border: '1px solid #E2E8F0' }}>
-                  <h3 style={{ fontSize: 18, fontWeight: 800, color: '#203A68', marginBottom: 8 }}>Guía del Ciclo de Regalías</h3>
-                  <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.5 }}>Documento explicativo sobre cómo se liquidan, distribuyen y ejecutan las regalías mineras en Colombia.</p>
-                </div>
-                <div className="news-masonry-card" style={{ background: '#fff', borderRadius: 12, padding: 24, border: '1px solid #E2E8F0' }}>
-                  <h3 style={{ fontSize: 18, fontWeight: 800, color: '#203A68', marginBottom: 8 }}>Glosario Minero-Energético</h3>
-                  <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.5 }}>Definiciones de los términos técnicos más usados en el sector minero y energético colombiano.</p>
-                </div>
-                <div className="news-masonry-card" style={{ background: '#fff', borderRadius: 12, padding: 24, border: '1px solid #E2E8F0' }}>
-                  <h3 style={{ fontSize: 18, fontWeight: 800, color: '#203A68', marginBottom: 8 }}>Normativa Aplicable</h3>
-                  <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.5 }}>Leyes, decretos y resoluciones que rigen la actividad minera y la distribución de regalías.</p>
-                </div>
-              </div>
-              <GlossarySection />
-            </div>
-          </section>
-        )}
-
         {page === 'participa' && (
           <>
             <ParticipacionSection />
@@ -180,21 +127,6 @@ function App() {
           </>
         )}
 
-        {page === 'documental' && (
-          <section style={sectionStyle}>
-            <div className="container section-inner">
-              <div className="section-header">
-                <span className="eyebrow">Gestión Documental</span>
-                <h2>Gestor Documental</h2>
-                <p>Consulte y descargue documentos oficiales, informes y normativas del sector minero-energético colombiano.</p>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {page === 'buscar' && (
-          <SearchPage />
-        )}
       </main>
       <Footer />
       <ChatbotCiudadano />

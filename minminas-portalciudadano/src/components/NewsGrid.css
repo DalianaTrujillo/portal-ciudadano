@@ -81,3 +81,41 @@
   gap: 10px;
   color: #203a68;
 }
+
+/* ── Sección de avance en Home ──────────────── */
+
+.home-news-section {
+  background: #f8fafc;
+  padding: 80px 0;
+}
+
+.home-news-section .section-header {
+  text-align: center;
+}
+
+.section-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 2px solid #EDB600;
+  color: #203A68;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline-gold:hover {
+  background: #EDB600;
+  color: #ffffff;
+}

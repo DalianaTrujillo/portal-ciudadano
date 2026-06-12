@@ -61,34 +61,43 @@ const newsData = [
   }
 ];
 
-const NewsGrid = () => (
-  <section className="news-grid-section">
-    <div className="container section-inner">
-      <div className="section-header">
-        <span className="eyebrow">Actualidad del Sector</span>
-        <h2>Noticias y Novedades</h2>
-        <p>Las últimas noticias del sector minero-energético colombiano, mantenerse informado es clave para la participación ciudadana.</p>
-      </div>
+const NewsGrid = ({ limit, embedded }) => {
+  const displayed = limit ? newsData.slice(0, limit) : newsData;
 
-      <div className="news-masonry">
-        {newsData.map((item, i) => (
-          <article key={i} className="news-masonry-card">
-            <div className="news-masonry-meta">
-              <span className="news-masonry-date">
-                <Calendar size={12} /> {item.date}
-              </span>
-              <span className="news-masonry-cat">{item.category}</span>
-            </div>
-            <h3 className="news-masonry-title">{item.title}</h3>
-            <p className="news-masonry-snippet">{item.snippet}</p>
-            <a href={item.link} target="_blank" rel="noopener noreferrer" className="news-masonry-link">
-              Leer más <ArrowRight size={14} />
-            </a>
-          </article>
-        ))}
-      </div>
+  const grid = (
+    <div className="news-masonry">
+      {displayed.map((item, i) => (
+        <article key={i} className="news-masonry-card">
+          <div className="news-masonry-meta">
+            <span className="news-masonry-date">
+              <Calendar size={12} /> {item.date}
+            </span>
+            <span className="news-masonry-cat">{item.category}</span>
+          </div>
+          <h3 className="news-masonry-title">{item.title}</h3>
+          <p className="news-masonry-snippet">{item.snippet}</p>
+          <a href={item.link} target="_blank" rel="noopener noreferrer" className="news-masonry-link">
+            Leer más <ArrowRight size={14} />
+          </a>
+        </article>
+      ))}
     </div>
-  </section>
-);
+  );
+
+  if (embedded) return grid;
+
+  return (
+    <section className="news-grid-section">
+      <div className="container section-inner">
+        <div className="section-header">
+          <span className="eyebrow">Actualidad del Sector</span>
+          <h2>Noticias y Novedades</h2>
+          <p>Las últimas noticias del sector minero-energético colombiano, mantenerse informado es clave para la participación ciudadana.</p>
+        </div>
+        {grid}
+      </div>
+    </section>
+  );
+};
 
 export default NewsGrid;
