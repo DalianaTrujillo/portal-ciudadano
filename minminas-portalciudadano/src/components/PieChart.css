@@ -1,0 +1,200 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   PieChart.css  –  Glassmorphism donut chart card
+   Palette: #203A68 (azul institucional) · #EDB600 (dorado) · #686868 (gris)
+   Font: Nunito Sans (loaded globally in index.css)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Card container ──────────────────────────────────────────────────────── */
+.pc-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  padding: 28px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.pc-header {
+  text-align: center;
+}
+
+.pc-eyebrow {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #EDB600;
+  margin-bottom: 6px;
+}
+
+.pc-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── SVG area ────────────────────────────────────────────────────────────── */
+.pc-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.pc-svg {
+  width: 200px;
+  height: 200px;
+  overflow: visible;
+  display: block;
+}
+
+/* Donut slices */
+.pc-slice {
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+  transition: filter 0.15s ease;
+}
+
+.pc-slice:hover {
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.6));
+}
+
+/* Centre text – percentage */
+.pc-center-pct {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  fill: #ffffff;
+}
+
+/* Centre text – label */
+.pc-center-lbl {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  fill: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────────────────── */
+.pc-tooltip {
+  position: absolute;
+  background: rgba(14, 26, 52, 0.97);
+  border: 1px solid rgba(237, 182, 0, 0.55);
+  border-radius: 8px;
+  padding: 10px 14px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 20;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+  animation: pc-tooltip-in 0.12s ease forwards;
+}
+
+@keyframes pc-tooltip-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.pc-tt-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #EDB600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 5px;
+}
+
+.pc-tt-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.pc-tt-pct {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.pc-tt-val {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* ── Legend ──────────────────────────────────────────────────────────────── */
+.pc-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pc-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.pc-legend-item:hover,
+.pc-legend-item--on {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.pc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pc-leg-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  flex: 1;
+}
+
+.pc-leg-pct {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .pc-svg {
+    width: 170px;
+    height: 170px;
+  }
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "entity": "MINENERGIA",
+    "intent": "DEFINICION",
+    "title": "¿Qué es el Ministerio de Minas y Energía?",
+    "content": "El Ministerio de Minas y Energía es la entidad cabeza del sector minero-energético en Colombia. Formula, adopta, dirige y coordina las políticas del sector para garantizar el abastecimiento de energía, el desarrollo minero responsable y la sostenibilidad de los recursos hidrocarburíferos.",
+    "keywords": "ministerio minas energia definicion politica sector abastecimiento",
+    "related_questions": ["¿Cuáles son las funciones del Ministerio?", "¿Cómo contactar al Ministerio?", "¿Qué normatividad rige el sector?"],
+    "source": "Ministerio de Minas y Energía",
+    "source_url": "https://www.minenergia.gov.co/institucional#def"
+  },
+  {
+    "entity": "MINENERGIA",
+    "intent": "FUNCIONES",
+    "title": "Funciones del Ministerio de Minas y Energía",
+    "content": "Entre sus funciones destacan: 1) Formular la política nacional del sector. 2) Regular la exploración, explotación y transporte de recursos no renovables. 3) Administrar los recursos del subsuelo. 4) Promover la transición energética y el uso de energías renovables.",
+    "keywords": "funciones ministerio regular politica exploracion explotacion transicion",
+    "related_questions": ["¿Qué es el Ministerio de Minas?", "¿Qué entidades están adscritas?"],
+    "source": "Ministerio de Minas y Energía",
+    "source_url": "https://www.minenergia.gov.co/institucional#func"
+  },
+  {
+    "entity": "MINENERGIA",
+    "intent": "CONTACTO",
+    "title": "Canales de Atención del Ministerio",
+    "content": "Puedes contactar al Ministerio de Minas y Energía a través de la línea gratuita nacional 01 8000 910 180, en Bogotá al (601) 220 0300, o enviar un correo a pqr@minenergia.gov.co. Sede Principal: Calle 43 No. 57-31 CAN, Bogotá D.C.",
+    "keywords": "contacto telefono correo atencion pqrs direccion sede",
+    "related_questions": ["¿Cómo presentar una PQRSD?", "¿Cuáles son los horarios de atención?"],
+    "source": "Ministerio de Minas y Energía",
+    "source_url": "https://www.minenergia.gov.co/atencion"
+  },
+  {
+    "entity": "ANM",
+    "intent": "DEFINICION",
+    "title": "¿Qué es la Agencia Nacional de Minería?",
+    "content": "La Agencia Nacional de Minería (ANM) administra de manera integral los recursos minerales del Estado. Es la autoridad minera encargada de promover el aprovechamiento óptimo y sostenible del patrimonio minero colombiano.",
+    "keywords": "anm agencia nacional mineria autoridad estado",
+    "related_questions": ["¿Cuáles son los trámites de la ANM?", "¿Qué es AnnA Minería?"],
+    "source": "Agencia Nacional de Minería",
+    "source_url": "https://www.anm.gov.co/institucional#def"
+  },
+  {
+    "entity": "ANM",
+    "intent": "TRAMITES",
+    "title": "Trámites Mineros en la ANM",
+    "content": "La ANM gestiona trámites como: Solicitud de Contratos de Concesión, Autorizaciones Temporales, Cesión de Derechos, Subcontratos de Formalización y Registro Minero Nacional.",
+    "keywords": "tramites anm contrato concesion cesion autorizacion",
+    "related_questions": ["¿Cuáles son los requisitos para un título minero?", "¿Qué es AnnA Minería?"],
+    "source": "Agencia Nacional de Minería",
+    "source_url": "https://www.anm.gov.co/tramites#lista"
+  },
+  {
+    "entity": "SGC",
+    "intent": "SERVICIOS",
+    "title": "Servicios del SGC",
+    "content": "El Servicio Geológico Colombiano ofrece monitoreo sísmico y volcánico 24/7, mapas geológicos descargables, licenciamiento para uso de materiales radiactivos y laboratorios de análisis geoquímico.",
+    "keywords": "servicios sgc mapas sismos volcanes radiactivos",
+    "related_questions": ["¿Qué es el SGC?", "¿Dónde consulto los últimos sismos?"],
+    "source": "Servicio Geológico Colombiano",
+    "source_url": "https://www.sgc.gov.co/servicios"
+  },
+  {
+    "entity": "REGALIAS",
+    "intent": "DEFINICION",
+    "title": "Concepto del Sistema General de Regalías",
+    "content": "Las regalías son la contraprestación económica que las empresas pagan al Estado por la explotación de recursos naturales no renovables. El Sistema General de Regalías (SGR) distribuye estos recursos a las regiones para financiar proyectos de desarrollo.",
+    "keywords": "regalias definicion sistema general sgr contraprestacion",
+    "related_questions": ["¿Cómo se distribuyen las regalías?", "¿Qué proyectos financian?"],
+    "source": "Sistema General de Regalías",
+    "source_url": "https://www.sgr.gov.co/definicion"
+  },
+  {
+    "entity": "DATOS_INDICADORES",
+    "intent": "SERVICIOS",
+    "title": "Datos Abiertos e Indicadores del Sector",
+    "content": "El Portal ofrece acceso a conjuntos de datos abiertos sobre producción minera, recaudo de regalías, generación eléctrica e indicadores macroeconómicos. Estos datos están disponibles en formatos exportables (CSV, JSON, Excel) para su libre uso.",
+    "keywords": "datos indicadores cifras estadisticas abiertos csv excel",
+    "related_questions": ["¿Cómo descargar las cifras de regalías?", "¿Dónde veo la producción minera?"],
+    "source": "Portal Ciudadano Minminas",
+    "source_url": "https://portalciudadano.minenergia.gov.co/datos"
+  },
+  {
+    "entity": "VISOR_TERRITORIAL",
+    "intent": "DEFINICION",
+    "title": "Visor Territorial y Mapas",
+    "content": "El Visor Territorial es una herramienta geográfica interactiva del Portal Ciudadano que permite visualizar en un mapa los proyectos financiados con regalías, títulos mineros vigentes y cobertura eléctrica en todo el país.",
+    "keywords": "visor territorial mapa geografico proyectos regalias",
+    "related_questions": ["¿Cómo usar el Visor Territorial?", "¿Puedo ver los títulos de mi municipio?"],
+    "source": "Portal Ciudadano Minminas",
+    "source_url": "https://portalciudadano.minenergia.gov.co/visor"
+  },
+  {
+    "entity": "ENTIDADES_TEMAS",
+    "intent": "GENERAL",
+    "title": "Entidades Adscritas al Sector",
+    "content": "El sector está conformado por el Ministerio y entidades adscritas como la Agencia Nacional de Minería (ANM), el Servicio Geológico Colombiano (SGC) y la Agencia Nacional de Hidrocarburos (ANH).",
+    "keywords": "entidades adscritas sector anh anm sgc",
+    "related_questions": ["¿Qué es la ANM?", "¿Qué es el SGC?"],
+    "source": "Ministerio de Minas y Energía",
+    "source_url": "https://www.minenergia.gov.co/entidades"
+  },
+  {
+    "entity": "TRAMITES_SERVICIOS",
+    "intent": "GENERAL",
+    "title": "Catálogo de Trámites",
+    "content": "El Portal centraliza el acceso a más de 50 trámites del sector, incluyendo licenciamiento, registro minero, subsidios eléctricos y PQRSD. Usa la barra de búsqueda para encontrar tu trámite.",
+    "keywords": "tramites servicios catalogo linea subsidios",
+    "related_questions": ["¿Cómo presentar una PQRSD?", "¿Cuáles son los trámites de la ANM?"],
+    "source": "Portal Ciudadano Minminas",
+    "source_url": "https://portalciudadano.minenergia.gov.co/tramites"
+  },
+  {
+    "entity": "PQRSD",
+    "intent": "TRAMITES",
+    "title": "Presentar una PQRSD",
+    "content": "Puedes radicar una Petición, Queja, Reclamo, Sugerencia o Denuncia (PQRSD) a través del formulario único del Portal Ciudadano. Se te asignará un número de radicado para hacer seguimiento en línea a tu solicitud.",
+    "keywords": "pqrsd queja reclamo peticion denuncia radicacion",
+    "related_questions": ["¿Cuánto tiempo tardan en responder una PQRSD?", "¿Cómo hacer seguimiento a mi PQRSD?"],
+    "source": "Portal Ciudadano Minminas",
+    "source_url": "https://portalciudadano.minenergia.gov.co/pqrsd"
+  },
+  {
+    "entity": "PARTICIPACION",
+    "intent": "GENERAL",
+    "title": "Mecanismos de Participación Ciudadana",
+    "content": "La participación ciudadana incluye Foros Virtuales, Consulta Previa para proyectos, Veedurías Ciudadanas para vigilar las regalías y la Rendición de Cuentas anual. Puedes inscribirte en los eventos activos desde el módulo de Participación.",
+    "keywords": "participacion ciudadana foros consulta previa veeduria rendicion",
+    "related_questions": ["¿Cómo participar en un foro virtual?", "¿Qué es la consulta previa?"],
+    "source": "Portal Ciudadano Minminas",
+    "source_url": "https://portalciudadano.minenergia.gov.co/participacion"
+  },
+  {
+    "entity": "NORMATIVIDAD",
+    "intent": "GENERAL",
+    "title": "Normatividad del Sector",
+    "content": "El marco legal principal incluye la Ley 685 de 2001 (Código de Minas), la Ley 2056 de 2020 (Sistema de Regalías) y múltiples decretos y resoluciones sobre transición energética y formalización minera.",
+    "keywords": "normatividad ley codigo minas decreto resolucion",
+    "related_questions": ["¿Dónde descargar el Código de Minas?", "¿Cuál es la ley de regalías?"],
+    "source": "Ministerio de Minas y Energía",
+    "source_url": "https://www.minenergia.gov.co/normatividad"
+  },
+  {
+    "entity": "ANNA_MINERIA",
+    "intent": "DEFINICION",
+    "title": "¿Qué es AnnA Minería?",
+    "content": "AnnA Minería es el sistema integrado de gestión minera de la ANM. Permite radicar solicitudes, consultar mapas con la cuadrícula minera, gestionar pagos de trámites y revisar expedientes mineros 100% en línea.",
+    "keywords": "anna mineria plataforma sistema expedientes cuadricula",
+    "related_questions": ["¿Cómo crear cuenta en AnnA Minería?", "¿Cómo consultar la cuadrícula minera?"],
+    "source": "Agencia Nacional de Minería",
+    "source_url": "https://annamineria.anm.gov.co"
+  }
+]

@@ -1,0 +1,132 @@
+.footer-energia {
+  background: #ffffff;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #4E4D4D;
+  width: 100%;
+}
+
+/* 1. Carrusel de Aliados (Integrado por AliadosCarousel.css) */
+
+/* 2. Estructura de 3 Columnas - Refinamiento Compacto */
+.footer-content-main {
+  padding: 40px 0; /* Reducido de 60px */
+}
+
+.footer-grid-system {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 30px; /* Reducido de 60px */
+  align-items: start;
+}
+
+.brand-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem; /* Reducido de 2.5rem para armonía */
+  color: #203A68;
+  margin-bottom: 8px;
+}
+
+.title-divider-gold {
+  width: 60px; /* Más corto */
+  height: 4px;
+  background-color: #EDB600;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.sub-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem; /* Reducido de 2rem */
+  color: #203A68;
+  margin-bottom: 12px;
+}
+
+.col-details p {
+  font-size: 16px; /* Reducido a base 16px según sugerencia */
+  color: #4E4D4D;
+  line-height: 1.35; /* Interlineado reducido */
+  margin-bottom: 6px;
+}
+
+.col-details p strong {
+  font-weight: 700;
+}
+
+.linea-label {
+  font-weight: 700;
+  margin-bottom: 2px !important;
+}
+
+.linea-highlight {
+  font-size: 24px !important; /* Reducido de 32px */
+  font-weight: 900 !important;
+  color: #FEC707 !important;
+  margin-bottom: 15px !important;
+}
+
+.footer-logo-box {
+  margin-top: 10px;
+}
+
+.footer-logo-res {
+  height: 60px; /* Más compacto */
+  object-fit: contain;
+}
+
+/* 3. Barra Inferior */
+.footer-bottom-bar {
+  border-top: 1px solid #EDF2F7;
+  padding: 25px 0 40px; /* Reducido */
+}
+
+.social-row-flex {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 25px;
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #203A68;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.legal-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #E2E8F0;
+  padding-top: 15px;
+  gap: 20px;
+}
+
+.legal-links-wrap {
+  display: flex;
+  gap: 20px;
+}
+
+.legal-links-wrap a {
+  text-decoration: none;
+  color: #718096;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.legal-copyright-text {
+  font-weight: 600;
+  font-size: 13px;
+  color: #A0AEC0;
+}
+
+@media (max-width: 1024px) {
+  .footer-grid-system {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}

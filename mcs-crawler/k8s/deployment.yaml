@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crawler-api
+  namespace: minminas-knowledge
+  labels:
+    app: crawler-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crawler-api
+  template:
+    metadata:
+      labels:
+        app: crawler-api
+    spec:
+      containers:
+        - name: crawler
+          image: minminas/mcs-crawler:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: crawler-config
+            - secretRef:
+                name: crawler-secret
+          env:
+            - name: PORT
+              value: "8082"
+          volumeMounts:
+            - name: downloads
+              mountPath: /app/downloads
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /api/v1/crawler/status
+              port: 8082
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /api/v1/crawler/status
+              port: 8082
+            initialDelaySeconds: 10
+            periodSeconds: 10
+      volumes:
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: crawler-downloads-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crawler-service
+  namespace: minminas-knowledge
+spec:
+  selector:
+    app: crawler-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8082
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: crawler-downloads-pvc
+  namespace: minminas-knowledge
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

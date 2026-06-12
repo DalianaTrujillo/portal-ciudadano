@@ -1,0 +1,155 @@
+.reports-section {
+  background: #F8F9FA;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.reports-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.pill-tab {
+  padding: 8px 24px;
+  border-radius: 999px;
+  border: 1px solid #E2E8F0;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4A5568;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pill-tab.active {
+  background: var(--azul-institucional);
+  color: #fff;
+  border-color: var(--azul-institucional);
+}
+
+/* Carousel Styles */
+.carousel-wrapper {
+  position: relative;
+  margin: 0 -32px;
+  padding: 0 32px;
+}
+
+.carousel-container {
+  cursor: grab;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.inner-carousel {
+  display: flex;
+  gap: 32px;
+}
+
+.report-card-carousel {
+  min-width: 450px; /* Adjust to show ~2.5 cards */
+  background: #fff;
+  border-radius: var(--radius-global);
+  padding: 32px;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  scroll-snap-align: center;
+}
+
+.report-title-navy {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--azul-institucional);
+  margin-bottom: 16px;
+}
+
+.report-excerpt {
+  font-size: 15px;
+  color: #718096;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.report-card-footer-tech {
+  padding-top: 20px;
+  border-top: 1px solid #f0f4f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report-date, .report-cat {
+  font-size: 13px;
+  color: #A0AEC0;
+  font-weight: 600;
+}
+
+/* Navigation */
+.carousel-nav-arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0 10px;
+  z-index: 10;
+}
+
+.nav-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--azul-institucional);
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+
+.nav-arrow:hover {
+  background: #F7FAFC;
+  transform: scale(1.1);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #E2E8F0;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #3366CC;
+  width: 24px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .report-card-carousel {
+    min-width: 85vw;
+  }
+}

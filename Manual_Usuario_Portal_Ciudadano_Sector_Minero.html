@@ -1,0 +1,2045 @@
+&#65279;<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual del Usuario &#8212; Portal Ciudadano Sector Minero | MinMinas</title>
+  <meta name="description" content="Manual del Usuario del Portal Ciudadano - M&#243;dulo Sector Minero del Ministerio de Minas y Energ&#237;a de Colombia. Gu&#237;a completa del Visor Territorial, Asistente Minero Virtual y herramientas de exportaci&#243;n." />
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+    html, body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      font-size: 10.5pt;
+      color: #334155;
+      background: #f1f5f9;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       PAGE WRAPPER
+    ============================================================ */
+    .page-wrapper {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #ffffff;
+    }
+
+    /* ============================================================
+       PRINT MEDIA
+    ============================================================ */
+    @page {
+      size: A4;
+      margin: 18mm 20mm 22mm 20mm;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff;
+        font-size: 10pt;
+      }
+      .page-wrapper {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .no-break {
+        page-break-inside: avoid;
+      }
+      .cover-page {
+        page-break-after: always;
+      }
+      .toc-section {
+        page-break-after: always;
+      }
+    }
+
+    /* ============================================================
+       COVER PAGE
+    ============================================================ */
+    .cover-page {
+      background: #203A68;
+      min-height: 297mm;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-accent-bar {
+      background: #EDB600;
+      height: 8px;
+      width: 100%;
+    }
+
+    .cover-top-band {
+      background: #FFFFFF;
+      padding: 10px 40px;
+    }
+
+    .cover-top-band-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cover-top-band-text {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #203A68;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+    }
+
+    .cover-top-logo {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .cover-body {
+      padding: 52px 50px 40px 50px;
+    }
+
+    .cover-ministry-label {
+      font-size: 9pt;
+      font-weight: 500;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .cover-ministry-name {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .cover-ministry-sub {
+      font-size: 11pt;
+      font-weight: 400;
+      color: #cbd5e1;
+      margin-bottom: 48px;
+    }
+
+    /* Decorative geometric block */
+    .cover-geo-block {
+      width: 100%;
+      height: 3px;
+      background: #EDB600;
+      margin-bottom: 48px;
+    }
+
+    .cover-title-eyebrow {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #EDB600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .cover-main-title {
+      font-size: 34pt;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .cover-subtitle {
+      font-size: 16pt;
+      font-weight: 300;
+      color: #93c5fd;
+      margin-bottom: 48px;
+      line-height: 1.3;
+    }
+
+    /* Agencies table */
+    .cover-agencies-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 60px;
+    }
+
+    .cover-agency-cell {
+      width: 50%;
+      vertical-align: top;
+      padding-right: 24px;
+    }
+
+    .cover-agency-cell:last-child {
+      padding-right: 0;
+      padding-left: 24px;
+      border-left: 1px solid #334d7a;
+    }
+
+    .agency-badge {
+      display: inline-block;
+      background: rgba(237, 182, 0, 0.15);
+      border: 1px solid #EDB600;
+      color: #EDB600;
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+
+    .agency-name {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .agency-desc {
+      font-size: 8.5pt;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    /* Cover footer */
+    .cover-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 18px 50px;
+      background: rgba(0,0,0,0.25);
+    }
+
+    .cover-footer-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .cover-footer-left {
+      vertical-align: middle;
+    }
+
+    .cover-footer-right {
+      vertical-align: middle;
+      text-align: right;
+    }
+
+    .cover-footer-meta {
+      font-size: 7.5pt;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .cover-footer-version {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #EDB600;
+    }
+
+    /* ============================================================
+       DOCUMENT BODY
+    ============================================================ */
+    .doc-body {
+      padding: 40px 50px 60px 50px;
+    }
+
+    /* ============================================================
+       TABLE OF CONTENTS
+    ============================================================ */
+    .toc-section {
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .toc-header {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #EDB600;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #203A68;
+    }
+
+    .toc-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .toc-row td {
+      padding: 7px 0;
+      border-bottom: 1px dotted #e2e8f0;
+      vertical-align: baseline;
+    }
+
+    .toc-number {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #203A68;
+      width: 40px;
+    }
+
+    .toc-title {
+      font-size: 9.5pt;
+      color: #334155;
+    }
+
+    .toc-title-main {
+      font-weight: 600;
+    }
+
+    .toc-title-sub {
+      font-weight: 400;
+      padding-left: 18px;
+      color: #64748b;
+      font-size: 9pt;
+    }
+
+    .toc-page {
+      font-size: 9pt;
+      color: #94a3b8;
+      text-align: right;
+      width: 30px;
+    }
+
+    .toc-dots {
+      color: #cbd5e1;
+      font-size: 8pt;
+    }
+
+    /* ============================================================
+       SECTION HEADERS
+    ============================================================ */
+    .section-number-badge {
+      display: inline-block;
+      background: #203A68;
+      color: #EDB600;
+      font-size: 8pt;
+      font-weight: 800;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    h1.section-title {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #203A68;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #EDB600;
+    }
+
+    h2.subsection-title {
+      font-size: 13pt;
+      font-weight: 700;
+      color: #203A68;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      padding-left: 14px;
+      border-left: 4px solid #EDB600;
+    }
+
+    h3.sub-subsection-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #334155;
+      margin-top: 22px;
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      font-size: 10pt;
+      color: #475569;
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    /* ============================================================
+       ALERT / NOTE BOXES
+    ============================================================ */
+    .alert-box {
+      padding: 16px 20px 16px 20px;
+      margin: 22px 0;
+      border-radius: 0;
+    }
+
+    .alert-inner-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .alert-icon-cell {
+      width: 34px;
+      vertical-align: top;
+      padding-right: 14px;
+    }
+
+    .alert-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 26px;
+      font-size: 12pt;
+      font-weight: 900;
+    }
+
+    .alert-content-cell {
+      vertical-align: top;
+    }
+
+    .alert-label {
+      font-size: 8pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+
+    .alert-text {
+      font-size: 9.5pt;
+      line-height: 1.65;
+    }
+
+    /* Info (blue) */
+    .alert-info {
+      background: #eff6ff;
+      border-left: 4px solid #203A68;
+    }
+    .alert-info .alert-icon {
+      background: #203A68;
+      color: #ffffff;
+    }
+    .alert-info .alert-label {
+      color: #203A68;
+    }
+    .alert-info .alert-text {
+      color: #1e3a5f;
+    }
+
+    /* Warning (yellow) */
+    .alert-warning {
+      background: #fffbeb;
+      border-left: 4px solid #EDB600;
+    }
+    .alert-warning .alert-icon {
+      background: #EDB600;
+      color: #ffffff;
+    }
+    .alert-warning .alert-label {
+      color: #92660a;
+    }
+    .alert-warning .alert-text {
+      color: #78350f;
+    }
+
+    /* Success (green) */
+    .alert-success {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+    }
+    .alert-success .alert-icon {
+      background: #16a34a;
+      color: #ffffff;
+    }
+    .alert-success .alert-label {
+      color: #15803d;
+    }
+    .alert-success .alert-text {
+      color: #14532d;
+    }
+
+    /* Technical (gray) */
+    .alert-tech {
+      background: #F8FAFC;
+      border-left: 4px solid #475569;
+    }
+    .alert-tech .alert-icon {
+      background: #475569;
+      color: #ffffff;
+    }
+    .alert-tech .alert-label {
+      color: #475569;
+    }
+    .alert-tech .alert-text {
+      color: #334155;
+    }
+
+    /* ============================================================
+       CONTENT TABLES
+    ============================================================ */
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 9.5pt;
+    }
+
+    .content-table thead tr {
+      background: #203A68;
+      color: #ffffff;
+    }
+
+    .content-table thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 9pt;
+      letter-spacing: 0.5px;
+    }
+
+    .content-table thead th:first-child {
+      border-left: 3px solid #EDB600;
+    }
+
+    .content-table tbody tr:nth-child(even) {
+      background: #F8FAFC;
+    }
+
+    .content-table tbody tr:nth-child(odd) {
+      background: #ffffff;
+    }
+
+    .content-table tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.6;
+      color: #334155;
+    }
+
+    .content-table tbody td strong {
+      color: #203A68;
+    }
+
+    .table-caption {
+      font-size: 8pt;
+      color: #64748b;
+      font-style: italic;
+      margin-top: 6px;
+      padding-left: 4px;
+    }
+
+    /* Entity badges in table */
+    .badge {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 2px 8px;
+    }
+
+    .badge-sgc {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .badge-anm {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-shared {
+      background: #f0fdf4;
+      color: #166534;
+    }
+
+    /* ============================================================
+       STEP PROCESS BOXES
+    ============================================================ */
+    .steps-container {
+      margin: 22px 0;
+    }
+
+    .step-row {
+      margin-bottom: 12px;
+    }
+
+    .step-inner {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .step-num-cell {
+      width: 38px;
+      vertical-align: top;
+    }
+
+    .step-num {
+      width: 30px;
+      height: 30px;
+      background: #203A68;
+      color: #EDB600;
+      font-size: 10pt;
+      font-weight: 800;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    .step-content-cell {
+      vertical-align: top;
+      padding-left: 14px;
+    }
+
+    .step-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #203A68;
+      margin-bottom: 3px;
+    }
+
+    .step-desc {
+      font-size: 9.5pt;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       CODE / TECHNICAL BLOCKS
+    ============================================================ */
+    .code-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 8.5pt;
+      line-height: 1.6;
+      margin: 16px 0;
+      border-left: 3px solid #EDB600;
+      overflow: hidden;
+    }
+
+    .code-comment {
+      color: #64748b;
+    }
+
+    .code-keyword {
+      color: #93c5fd;
+    }
+
+    .code-string {
+      color: #86efac;
+    }
+
+    .code-function {
+      color: #fbbf24;
+    }
+
+    /* ============================================================
+       FEATURE CARDS (table layout)
+    ============================================================ */
+    .features-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    .feature-card-cell {
+      width: 50%;
+      vertical-align: top;
+      padding: 4px;
+    }
+
+    .feature-card {
+      background: #F8FAFC;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid #203A68;
+      padding: 16px 18px;
+      height: 100%;
+    }
+
+    .feature-card-accent {
+      border-top-color: #EDB600;
+    }
+
+    .feature-icon {
+      font-size: 18pt;
+      margin-bottom: 8px;
+    }
+
+    .feature-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #203A68;
+      margin-bottom: 6px;
+    }
+
+    .feature-desc {
+      font-size: 9pt;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       INLINE ELEMENTS
+    ============================================================ */
+    .kbd {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-bottom: 2px solid #94a3b8;
+      padding: 1px 7px;
+      font-family: 'Courier New', monospace;
+      font-size: 8.5pt;
+      color: #334155;
+    }
+
+    .tag-inline {
+      display: inline-block;
+      background: #203A68;
+      color: #EDB600;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 1px 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .highlight-text {
+      background: #fef9c3;
+      color: #713f12;
+      padding: 0 3px;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    ul, ol {
+      margin: 10px 0 16px 24px;
+    }
+
+    li {
+      margin-bottom: 5px;
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       SECTION DIVIDER
+    ============================================================ */
+    .section-divider {
+      border: none;
+      border-top: 2px solid #e2e8f0;
+      margin: 48px 0;
+    }
+
+    .section-break-header {
+      background: #203A68;
+      color: #EDB600;
+      padding: 8px 20px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* ============================================================
+       FOOTER BAR (per section)
+    ============================================================ */
+    .doc-footer {
+      margin-top: 60px;
+      padding-top: 16px;
+      border-top: 2px solid #e2e8f0;
+    }
+
+    .doc-footer-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .doc-footer-left {
+      font-size: 7.5pt;
+      color: #94a3b8;
+      vertical-align: middle;
+    }
+
+    .doc-footer-center {
+      font-size: 7.5pt;
+      color: #94a3b8;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .doc-footer-right {
+      font-size: 7.5pt;
+      color: #94a3b8;
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .footer-accent-bar {
+      height: 5px;
+      background: #203A68;
+      margin-top: 8px;
+    }
+
+    /* ============================================================
+       DEFINITION LIST (glosario style)
+    ============================================================ */
+    .def-list {
+      margin: 14px 0;
+    }
+
+    .def-term {
+      background: #F8FAFC;
+      border-left: 3px solid #EDB600;
+      padding: 8px 14px;
+      margin-bottom: 2px;
+    }
+
+    .def-term-name {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #203A68;
+    }
+
+    .def-term-abbr {
+      font-size: 8pt;
+      color: #64748b;
+      margin-left: 8px;
+    }
+
+    .def-description {
+      padding: 8px 14px 14px 18px;
+      font-size: 9.5pt;
+      color: #475569;
+      line-height: 1.65;
+      border-left: 3px solid #e2e8f0;
+      margin-bottom: 8px;
+    }
+
+    /* ============================================================
+       WATERMARK / CLASSIFICATION LABEL
+    ============================================================ */
+    .classification-label {
+      background: #F8FAFC;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+      padding: 6px 20px;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+    }
+
+    /* ============================================================
+       TRIVIA CALLOUT
+    ============================================================ */
+    .callout-strip {
+      background: #203A68;
+      color: #ffffff;
+      padding: 18px 24px;
+      margin: 22px 0;
+    }
+
+    .callout-strip-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #EDB600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .callout-strip-text {
+      font-size: 9.5pt;
+      color: #e2e8f0;
+      line-height: 1.65;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     PORTADA / COVER PAGE
+================================================================ -->
+<div class="page-wrapper">
+  <div class="cover-page">
+
+    <!-- Top yellow band -->
+    <div class="cover-top-band">
+      <div class="cover-top-band-inner">
+        <div class="cover-top-band-text">Rep&#250;blica de Colombia &nbsp;&#183;&nbsp; Ministerio de Minas y Energ&#237;a</div>
+        <img src="data:image/jpeg;base64,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" alt="Colombia Digital" class="cover-top-logo" />
+      </div>
+    </div>
+
+    <!-- Main cover content -->
+    <div class="cover-body">
+      <div class="cover-ministry-label">Direcci&#243;n de Tecnolog&#237;as e Informaci&#243;n</div>
+      <div class="cover-ministry-name">Ministerio de Minas<br/>y Energ&#237;a</div>
+      <div class="cover-ministry-sub">Sector Minero &#8212; Transformaci&#243;n Digital Ciudadana</div>
+
+      <div class="cover-geo-block"></div>
+
+      <div class="cover-title-eyebrow">Documentaci&#243;n Oficial &#183; Versi&#243;n 2.0</div>
+      <div class="cover-main-title">Manual del<br/>Usuario</div>
+      <div class="cover-subtitle">Portal Ciudadano<br/>M&#243;dulo Sector Minero</div>
+
+      <!-- Agencies -->
+      <table class="cover-agencies-table">
+        <tr>
+          <td class="cover-agency-cell">
+            <div class="agency-badge">SGC</div>
+            <div class="agency-name">Servicio Geol&#243;gico Colombiano</div>
+            <div class="agency-desc">Datos s&#237;smicos, cartograf&#237;a geol&#243;gica, riesgos geol&#243;gicos, fuentes radiactivas y patrimonio geol&#243;gico nacional.</div>
+          </td>
+          <td class="cover-agency-cell">
+            <div class="agency-badge">ANM</div>
+            <div class="agency-name">Agencia Nacional de Miner&#237;a</div>
+            <div class="agency-desc">T&#237;tulos mineros, regal&#237;as, sistema AnnA Miner&#237;a, catastro minero y tr&#225;mites del Registro Minero Nacional.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Cover footer -->
+    <div class="cover-footer">
+      <table class="cover-footer-table">
+        <tr>
+          <td class="cover-footer-left">
+            <div class="cover-footer-meta">
+              Ministerio de Minas y Energ&#237;a<br/>
+              Calle 43 No. 57-31, Bogot&#225; D.C., Colombia
+            </div>
+          </td>
+          <td class="cover-footer-right">
+            <div class="cover-footer-version">v2.0 &#183; Junio 2026</div>
+            <div class="cover-footer-meta">Documento de uso institucional</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div><!-- /cover-page -->
+</div><!-- /page-wrapper -->
+
+
+<!-- ================================================================
+     DOCUMENTO PRINCIPAL
+================================================================ -->
+<div class="page-wrapper">
+  <div class="doc-body">
+
+    <!-- Classification label -->
+    <div class="classification-label">
+      Documento de Uso P&#250;blico &nbsp;&#183;&nbsp; Portal Ciudadano Sector Minero &nbsp;&#183;&nbsp; MinMinas 2026
+    </div>
+
+    <!-- ============================================================
+         TABLA DE CONTENIDO
+    ============================================================ -->
+    <div class="toc-section no-break">
+      <div class="toc-header">Tabla de Contenido</div>
+      <table class="toc-table">
+        <tbody>
+          <tr class="toc-row">
+            <td class="toc-number">1.</td>
+            <td class="toc-title toc-title-main">Introducci&#243;n y Prop&#243;sito del Portal</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">2</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">1.1</td>
+            <td class="toc-title toc-title-sub">Visi&#243;n del Portal Unificado</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">2</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">1.2</td>
+            <td class="toc-title toc-title-sub">Pol&#237;tica de Visualizaci&#243;n Inmediata (Sin Descargas de Servidor)</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">2</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">1.3</td>
+            <td class="toc-title toc-title-sub">Entidades Integradas: SGC y ANM</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">3</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">2.</td>
+            <td class="toc-title toc-title-main">Visor Territorial Interactivo</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">4</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">2.1</td>
+            <td class="toc-title toc-title-sub">Panel de Filtros Fluidos</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">4</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">2.2</td>
+            <td class="toc-title toc-title-sub">Criterios de B&#250;squeda Disponibles</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">5</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">2.3</td>
+            <td class="toc-title toc-title-sub">Interpretaci&#243;n de Resultados</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">5</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">3.</td>
+            <td class="toc-title toc-title-main">Asistente Minero Virtual</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">6</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">3.1</td>
+            <td class="toc-title toc-title-sub">Motor de Procesamiento Ling&#252;&#237;stico</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">6</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">3.2</td>
+            <td class="toc-title toc-title-sub">Sistema de Triaje Inteligente</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">7</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">3.3</td>
+            <td class="toc-title toc-title-sub">Memoria de Sesi&#243;n y Continuidad Conversacional</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">9</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">4.</td>
+            <td class="toc-title toc-title-main">Exportaci&#243;n e Impresi&#243;n de Reportes</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">10</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">4.1</td>
+            <td class="toc-title toc-title-sub">Arquitectura del Sistema de Impresi&#243;n</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">10</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">4.2</td>
+            <td class="toc-title toc-title-sub">Nomenclatura Din&#225;mica de Archivos PDF</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">11</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">4.3</td>
+            <td class="toc-title toc-title-sub">Gu&#237;a Paso a Paso para el Usuario</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">11</td>
+          </tr>
+          <tr class="toc-row">
+            <td class="toc-number">5.</td>
+            <td class="toc-title toc-title-main">Preguntas Frecuentes y Soporte</td>
+            <td class="toc-dots">&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;</td>
+            <td class="toc-page">12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /toc-section -->
+
+
+    <!-- ============================================================
+         SECCI&#211;N 1: INTRODUCCI&#211;N
+    ============================================================ -->
+    <div class="page-break"></div>
+    <div class="section-break-header">Secci&#243;n 1 de 5</div>
+
+    <div class="no-break">
+      <div class="section-number-badge">SECCI&#211;N 01</div>
+      <h1 class="section-title">Introducci&#243;n y Prop&#243;sito del Portal</h1>
+    </div>
+
+    <h2 class="subsection-title">1.1 Visi&#243;n del Portal Unificado</h2>
+
+    <p class="section-intro">
+      El <strong>Portal Ciudadano &#8212; M&#243;dulo Sector Minero</strong> es una plataforma de acceso p&#250;blico desarrollada
+      por el Ministerio de Minas y Energ&#237;a de Colombia. Su objetivo principal es consolidar, en un &#250;nico punto de
+      entrada digital, toda la informaci&#243;n producida por las dos entidades adscritas m&#225;s relevantes del sector:
+      el <strong>Servicio Geol&#243;gico Colombiano (SGC)</strong> y la <strong>Agencia Nacional de Miner&#237;a (ANM)</strong>.
+    </p>
+
+    <p>
+      El portal ha sido construido con tecnolog&#237;a <strong>React puro</strong> (sin dependencias de frameworks
+      adicionales), lo que garantiza una experiencia de usuario fluida, componentes reactivos y una arquitectura
+      de estado predecible. Esta elecci&#243;n tecnol&#243;gica permite que toda la l&#243;gica de filtrado, visualizaci&#243;n y
+      procesamiento de lenguaje natural ocurra exclusivamente en el navegador del ciudadano, sin necesidad de
+      realizar llamadas a servidores de archivos externos.
+    </p>
+
+    <table class="features-table">
+      <tr>
+        <td class="feature-card-cell">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#203A68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            </div>
+            <div class="feature-title">Visor Territorial Interactivo</div>
+            <div class="feature-desc">Panel de filtros espaciosos para explorar datos geol&#243;gicos, mineros y de regal&#237;as por departamento, producto, fecha y organizaci&#243;n.</div>
+          </div>
+        </td>
+        <td class="feature-card-cell">
+          <div class="feature-card feature-card-accent">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#203A68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <div class="feature-title">Asistente Minero Virtual</div>
+            <div class="feature-desc">Asistente conversacional con motor de procesamiento ling&#252;&#237;stico avanzado, triaje inteligente y memoria de sesi&#243;n persistente para derivar consultas al SGC o la ANM.</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="feature-card-cell">
+          <div class="feature-card feature-card-accent">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#203A68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="feature-title">Exportaci&#243;n en PDF</div>
+            <div class="feature-desc">Generaci&#243;n din&#225;mica de reportes PDF mediante iframe oculto, con nombres de archivo que se adaptan autom&#225;ticamente al contenido de la tabla visualizada.</div>
+          </div>
+        </td>
+        <td class="feature-card-cell">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#203A68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="feature-title">Sin Descarga de Servidor</div>
+            <div class="feature-desc">Toda la interacci&#243;n es por visualizaci&#243;n en pantalla. No se descarga ning&#250;n archivo desde el servidor; toda la generaci&#243;n es local en el navegador.</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <h2 class="subsection-title">1.2 Pol&#237;tica de Visualizaci&#243;n Inmediata (Sin Descargas de Servidor)</h2>
+
+    <p>
+      Por dise&#241;o institucional y razones de seguridad de la informaci&#243;n, el Portal Ciudadano adopta un principio
+      fundamental denominado <strong>"Visualizaci&#243;n Inmediata"</strong>. Este principio establece que <em>ning&#250;n
+      archivo binario, hoja de c&#225;lculo, documento o base de datos es descargado desde un servidor remoto</em>
+      hacia el dispositivo del ciudadano como resultado de una interacci&#243;n con el portal.
+    </p>
+
+    <div class="alert-box alert-info no-break">
+      <table class="alert-inner-table">
+        <tr>
+          <td class="alert-icon-cell">
+            <div class="alert-icon">&#226;&#8222;&#185;</div>
+          </td>
+          <td class="alert-content-cell">
+            <div class="alert-label">Principio de Dise&#241;o &#8212; Visualizaci&#243;n Inmediata</div>
+            <div class="alert-text">
+              Toda la informaci&#243;n disponible en el portal se <strong>renderiza en pantalla</strong> de forma
+              inmediata. Los datos se cargan en la memoria del navegador (estado de React) y se presentan
+              directamente al usuario sin intermediar una descarga de servidor. Si el ciudadano requiere una
+              copia en PDF, el sistema utiliza las <strong>capacidades de impresi&#243;n nativas del navegador</strong>
+              y un iframe oculto para generar el documento localmente.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <p>
+      Esta pol&#237;tica tiene implicaciones importantes para el ciudadano usuario:
+    </p>
+
+    <ul>
+      <li>No se requiere configurar permisos especiales de descarga en el navegador.</li>
+      <li>Los datos nunca persisten en el dispositivo del usuario sin su intervenci&#243;n expl&#237;cita (bot&#243;n de imprimir).</li>
+      <li>La informaci&#243;n siempre se presenta en su versi&#243;n m&#225;s actualizada, sincronizada con las fuentes de datos del SGC y la ANM.</li>
+      <li>El portal funciona &#237;ntegramente desde el navegador sin plugins adicionales de terceros.</li>
+    </ul>
+
+    <h2 class="subsection-title">1.3 Entidades Integradas: SGC y ANM</h2>
+
+    <p>
+      El portal unifica las capacidades informativas de las dos entidades t&#233;cnicas del sector, cada una con
+      &#225;mbitos de competencia diferenciados y complementarios:
+    </p>
+
+    <table class="content-table no-break">
+      <thead>
+        <tr>
+          <th style="width:15%">Entidad</th>
+          <th style="width:42%">&#193;mbito de Competencia Principal</th>
+          <th style="width:43%">Tem&#225;ticas Disponibles en el Portal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-sgc">SGC</span><br/><strong>Servicio Geol&#243;gico Colombiano</strong></td>
+          <td>Conocimiento geol&#243;gico del territorio nacional, gesti&#243;n del riesgo s&#237;smico y volc&#225;nico, y control de materiales radiactivos.</td>
+          <td>Sismolog&#237;a y geof&#237;sica &#183; Cartograf&#237;a geol&#243;gica &#183; Amenazas volc&#225;nicas &#183; Remoci&#243;n en masa &#183; Fuentes radiactivas &#183; Patrimonio geol&#243;gico</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-anm">ANM</span><br/><strong>Agencia Nacional de Miner&#237;a</strong></td>
+          <td>Administraci&#243;n del recurso minero del Estado, otorgamiento de t&#237;tulos mineros y fiscalizaci&#243;n de regal&#237;as.</td>
+          <td>T&#237;tulos mineros vigentes &#183; Catastro Minero Nacional &#183; Regal&#237;as e ingresos &#183; Sistema AnnA Miner&#237;a &#183; Tr&#225;mites del RMN &#183; Datos abiertos mineros</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-caption">Tabla 1. Distribuci&#243;n de competencias entre SGC y ANM en el Portal Ciudadano.</div>
+
+    <div class="alert-box alert-success no-break">
+      <table class="alert-inner-table">
+        <tr>
+          <td class="alert-icon-cell">
+            <div class="alert-icon">&#226;&#339;&#8220;</div>
+          </td>
+          <td class="alert-content-cell">
+            <div class="alert-label">Buenas pr&#225;cticas</div>
+            <div class="alert-text">
+              Para obtener la mejor experiencia en el portal, utilice un navegador moderno basado en Chromium
+              (Google Chrome 110+, Microsoft Edge 110+) o Mozilla Firefox 110+. El portal no es compatible con
+              Internet Explorer. Para una correcta generaci&#243;n de PDF, aseg&#250;rese de tener habilitada la opci&#243;n
+              de <strong>"Imprimir fondos gr&#225;ficos"</strong> en la configuraci&#243;n de impresi&#243;n de su navegador.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <hr class="section-divider"/>
+
+
+    <!-- ============================================================
+         SECCI&#211;N 2: VISOR TERRITORIAL
+    ============================================================ -->
+    <div class="page-break"></div>
+    <div class="section-break-header">Secci&#243;n 2 de 5</div>
+
+    <div class="no-break">
+      <div class="section-number-badge">SECCI&#211;N 02</div>
+      <h1 class="section-title">Visor Territorial Interactivo</h1>
+    </div>
+
+    <p class="section-intro">
+      El <strong>Visor Territorial</strong> es el componente principal de exploraci&#243;n de datos del Portal
+      Ciudadano. Permite al usuario filtrar, consultar y visualizar informaci&#243;n geol&#243;gica y minera proveniente
+      del SGC y la ANM mediante un panel de controles dise&#241;ado para ser intuitivo, espacioso y accesible
+      desde cualquier dispositivo con un navegador web moderno.
+    </p>
+
+    <h2 class="subsection-title">2.1 Panel de Filtros Fluidos</h2>
+
+    <p>
+      El t&#233;rmino <em>"filtros fluidos"</em> describe un dise&#241;o de interfaz en el que los controles de b&#250;squeda
+      se ajustan din&#225;micamente al ancho de la pantalla y responden en tiempo real a las acciones del usuario,
+      sin necesidad de presionar un bot&#243;n de "Buscar" expl&#237;cito. Cada cambio en un filtro desencadena una
+      actualizaci&#243;n inmediata de los resultados presentados en la tabla principal.
+    </p>
+
+    <div class="alert-box alert-warning no-break">
+      <table class="alert-inner-table">
+        <tr>
+          <td class="alert-icon-cell">
+            <div class="alert-icon">!</div>
+          </td>
+          <td class="alert-content-cell">
+            <div class="alert-label">Importante &#8212; Actualizaci&#243;n en Tiempo Real</div>
+            <div class="alert-text">
+              Los filtros operan sobre los datos ya cargados en memoria (estado del componente React). No se
+              realizan nuevas peticiones de red cada vez que se modifica un filtro. Esto asegura respuestas
+              instant&#225;neas, pero implica que la informaci&#243;n mostrada corresponde al momento en que la sesi&#243;n
+              fue iniciada. Para obtener datos actualizados, recargue la p&#225;gina del portal.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 class="sub-subsection-title">Caracter&#237;sticas del Dise&#241;o del Panel</h3>
+
+    <ul>
+      <li><strong>Espaciado generoso:</strong> Los controles mantienen un margen interno amplio para facilitar la interacci&#243;n t&#225;ctil en tabletas y dispositivos m&#243;viles.</li>
+      <li><strong>Etiquetas descriptivas:</strong> Cada filtro incluye una etiqueta visible y un texto de marcador de posici&#243;n (<em>placeholder</em>) que describe el tipo de dato esperado.</li>
+      <li><strong>Indicadores visuales:</strong> Los filtros activos se resaltan con el color institucional Amarillo Dorado (#EDB600) para que el usuario identifique f&#225;cilmente qu&#233; criterios est&#225;n aplicados.</li>
+      <li><strong>Bot&#243;n de limpieza global:</strong> Un control "Limpiar filtros" restablece todos los criterios a su estado inicial con un solo clic.</li>
+    </ul>
+
+    <h2 class="subsection-title">2.2 Criterios de B&#250;squeda Disponibles</h2>
+
+    <table class="content-table no-break">
+      <thead>
+        <tr>
+          <th style="width:22%">Filtro</th>
+          <th style="width:18%">Tipo de Control</th>
+          <th style="width:35%">Descripci&#243;n</th>
+          <th style="width:25%">Fuente de Datos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Departamento</strong></td>
+          <td>Lista desplegable (Select)</td>
+          <td>Permite seleccionar uno o varios departamentos del territorio colombiano para delimitar geogr&#225;ficamente la consulta.</td>
+          <td><span class="badge badge-sgc">SGC</span> <span class="badge badge-anm">ANM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Producto / Mineral</strong></td>
+          <td>Campo de texto con autocompletar</td>
+          <td>Nombre del mineral o recurso minero (carb&#243;n, oro, esmeraldas, n&#237;quel, cobre, etc.). Acepta nombres comunes y denominaciones t&#233;cnicas.</td>
+          <td><span class="badge badge-anm">ANM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Rango de Fecha</strong></td>
+          <td>Selector de fecha (Date Picker)</td>
+          <td>Filtra registros por fecha de publicaci&#243;n del dato, vigencia del t&#237;tulo o per&#237;odo de reporte de regal&#237;as.</td>
+          <td><span class="badge badge-sgc">SGC</span> <span class="badge badge-anm">ANM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Organizaci&#243;n</strong></td>
+          <td>Lista desplegable (Select)</td>
+          <td>Permite seleccionar la entidad productora del dato: SGC o ANM. &#218;til para segmentar la vista cuando se necesita informaci&#243;n de una sola fuente.</td>
+          <td><span class="badge badge-shared">Portal</span></td>
+        </tr>
+        <tr>
+          <td><strong>B&#250;squeda libre</strong></td>
+          <td>Campo de texto global</td>
+          <td>B&#250;squeda de texto libre sobre todos los campos visibles de la tabla: nombre del conjunto de datos, descripci&#243;n, palabras clave y etiquetas tem&#225;ticas.</td>
+          <td><span class="badge badge-sgc">SGC</span> <span class="badge badge-anm">ANM</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-caption">Tabla 2. Filtros disponibles en el Visor Territorial y sus caracter&#237;sticas.</div>
+
+    <h2 class="subsection-title">2.3 Interpretaci&#243;n de Resultados</h2>
+
+    <p>
+      Los resultados se presentan en una tabla din&#225;mica con columnas ordenables. Cada fila representa un
+      conjunto de datos o registro disponible. Las columnas principales son:
+    </p>
+
+    <ul>
+      <li><strong>Nombre del Conjunto de Datos:</strong> Identificador oficial del dataset seg&#250;n el cat&#225;logo de la entidad.</li>
+      <li><strong>Organizaci&#243;n:</strong> SGC o ANM, con c&#243;digo de color institucional.</li>
+      <li><strong>Departamento(s):</strong> Cobertura geogr&#225;fica del conjunto de datos.</li>
+      <li><strong>&#218;ltima Actualizaci&#243;n:</strong> Fecha de la versi&#243;n m&#225;s reciente del conjunto de datos.</li>
+      <li><strong>Acci&#243;n:</strong> Bot&#243;n <span class="tag-inline">VER DATOS</span> para desplegar el detalle en pantalla, y bot&#243;n <span class="tag-inline">IMPRIMIR</span> para generar el reporte PDF.</li>
+    </ul>
+
+    <div class="callout-strip no-break">
+      <div class="callout-strip-title">Consejo de Productividad</div>
+      <div class="callout-strip-text">
+        Combine el filtro de <strong>Organizaci&#243;n</strong> (ej. ANM) con el filtro de <strong>Producto</strong>
+        (ej. "carb&#243;n") y el filtro de <strong>Departamento</strong> (ej. "Cesar") para obtener resultados
+        altamente espec&#237;ficos. El Visor aplica todos los filtros simult&#225;neamente usando l&#243;gica AND, por lo que
+        entre m&#225;s criterios active, m&#225;s preciso ser&#225; el conjunto de resultados.
+      </div>
+    </div>
+
+    <hr class="section-divider"/>
+
+
+    <!-- ============================================================
+         SECCI&#211;N 3: ASISTENTE MINERO VIRTUAL
+    ============================================================ -->
+    <div class="page-break"></div>
+    <div class="section-break-header">Secci&#243;n 3 de 5</div>
+
+    <div class="no-break">
+      <div class="section-number-badge">SECCI&#211;N 03</div>
+      <h1 class="section-title">Asistente Minero Virtual</h1>
+    </div>
+
+    <p class="section-intro">
+      El <strong>Asistente Minero Virtual</strong> es un componente de inteligencia conversacional integrado
+      directamente en el portal. Fue dise&#241;ado para atender consultas en lenguaje natural de los ciudadanos
+      sobre tr&#225;mites, informaci&#243;n t&#233;cnica, datos estad&#237;sticos y servicios de las entidades del sector minero.
+      A diferencia de un chatbot de &#225;rbol de decisi&#243;n est&#225;tico, el Asistente implementa un motor de
+      procesamiento ling&#252;&#237;stico que le permite entender variaciones ortogr&#225;ficas, sin&#243;nimos y contextos
+      conversacionales complejos.
+    </p>
+
+    <h2 class="subsection-title">3.1 Motor de Procesamiento Ling&#252;&#237;stico</h2>
+
+    <h3 class="sub-subsection-title">3.1.1 Normalizaci&#243;n de Texto y Tolerancia a Errores Ortogr&#225;ficos</h3>
+
+    <p>
+      El motor de procesamiento aplica una cadena de transformaciones sobre el texto ingresado por el usuario
+      antes de intentar identificar la intenci&#243;n de la consulta. Este proceso garantiza que variaciones
+      ortogr&#225;ficas comunes no impidan al Asistente comprender lo que el ciudadano est&#225; preguntando.
+    </p>
+
+    <p>
+      La transformaci&#243;n m&#225;s relevante es la <strong>normalizaci&#243;n de caracteres Unicode</strong>, que elimina
+      las tildes y acentos del texto antes de compararlo con el diccionario de intenciones del bot. Esto
+      significa que las siguientes consultas son procesadas de manera id&#233;ntica:
+    </p>
+
+    <table class="content-table no-break">
+      <thead>
+        <tr>
+          <th style="width:40%">Texto ingresado por el usuario</th>
+          <th style="width:30%">Texto normalizado (interno)</th>
+          <th style="width:30%">Intenci&#243;n reconocida</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"&#191;C&#243;mo obtengo un t&#237;tulo minero?"</td>
+          <td><span class="kbd">como obtengo un titulo minero</span></td>
+          <td>Solicitud de t&#237;tulo minero &#226;&#8224;&#8217; ANM</td>
+        </tr>
+        <tr>
+          <td>"como obtengo un titulo minero"</td>
+          <td><span class="kbd">como obtengo un titulo minero</span></td>
+          <td>Solicitud de t&#237;tulo minero &#226;&#8224;&#8217; ANM</td>
+        </tr>
+        <tr>
+          <td>"T&#205;TULO MINERO informaci&#243;n"</td>
+          <td><span class="kbd">titulo minero informacion</span></td>
+          <td>Solicitud de t&#237;tulo minero &#226;&#8224;&#8217; ANM</td>
+        </tr>
+        <tr>
+          <td>"Hay un sismo en mi regi&#243;n"</td>
+          <td><span class="kbd">hay un sismo en mi region</span></td>
+          <td>Consulta s&#237;smica &#226;&#8224;&#8217; SGC</td>
+        </tr>
+        <tr>
+          <td>"temblor hoy bogota"</td>
+          <td><span class="kbd">temblor hoy bogota</span></td>
+          <td>Consulta s&#237;smica &#226;&#8224;&#8217; SGC (por sin&#243;nimo)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-caption">Tabla 3. Ejemplos de normalizaci&#243;n de texto en el motor de procesamiento.</div>
+
+    <h3 class="sub-subsection-title">3.1.2 Motor de Sin&#243;nimos Sectoriales</h3>
+
+    <p>
+      El Asistente incluye un diccionario de sin&#243;nimos construido espec&#237;ficamente para el sector minero y
+      geol&#243;gico colombiano. Este diccionario mapea t&#233;rminos coloquiales, denominaciones regionales y errores
+      tipogr&#225;ficos frecuentes a sus equivalentes t&#233;cnicos oficiales. Algunos ejemplos:
+    </p>
+
+    <div class="def-list">
+      <div class="def-term">
+        <span class="def-term-name">Temblor / Terremoto / Movimiento tel&#250;rico</span>
+        <span class="def-term-abbr">&#226;&#8224;&#8217; Sin&#243;nimos de "Sismo"</span>
+      </div>
+      <div class="def-description">Cualquiera de estos t&#233;rminos activa la rama de consultas s&#237;smicas y redirige la informaci&#243;n hacia el cat&#225;logo de eventos del SGC (Red Sismol&#243;gica Nacional de Colombia).</div>
+
+      <div class="def-term">
+        <span class="def-term-name">Concesi&#243;n / Licencia de explotaci&#243;n / Permiso minero</span>
+        <span class="def-term-abbr">&#226;&#8224;&#8217; Sin&#243;nimos de "T&#237;tulo Minero"</span>
+      </div>
+      <div class="def-description">Estos t&#233;rminos activan el flujo de tr&#225;mites de la ANM, espec&#237;ficamente el proceso de otorgamiento de contratos de concesi&#243;n minera a trav&#233;s del sistema AnnA Miner&#237;a.</div>
+
+      <div class="def-term">
+        <span class="def-term-name">Mapa / Capa / Shapefile / WMS</span>
+        <span class="def-term-abbr">&#226;&#8224;&#8217; Sin&#243;nimos de "Cartograf&#237;a Geol&#243;gica"</span>
+      </div>
+      <div class="def-description">Redirige la consulta hacia el portal de datos espaciales del SGC, donde se publican las planchas geol&#243;gicas, las capas de amenazas y los servicios web cartogr&#225;ficos.</div>
+
+      <div class="def-term">
+        <span class="def-term-name">Plata / Canon / Participaci&#243;n / Contraprestaci&#243;n</span>
+        <span class="def-term-abbr">&#226;&#8224;&#8217; Sin&#243;nimos de "Regal&#237;as"</span>
+      </div>
+      <div class="def-description">Activa el flujo de consultas de regal&#237;as mineras, mostrando informaci&#243;n del Sistema General de Regal&#237;as (SGR) y los reportes de la ANM sobre liquidaci&#243;n y distribuci&#243;n de regal&#237;as.</div>
+    </div>
+
+    <h2 class="subsection-title">3.2 Sistema de Triaje Inteligente</h2>
+
+    <p>
+      El <strong>triaje inteligente</strong> es el mecanismo por el cual el Asistente Minero Virtual
+      determina, para cada consulta recibida, si la respuesta y los recursos relevantes corresponden
+      al &#225;mbito del SGC o de la ANM, y despliega la informaci&#243;n y los enlaces institucionales correctos.
+    </p>
+
+    <div class="callout-strip no-break">
+      <div class="callout-strip-title">Funcionamiento del Triaje Inteligente</div>
+      <div class="callout-strip-text">
+        El Asistente analiza las palabras clave de la consulta normalizada y las compara contra dos cat&#225;logos
+        de intenciones: el cat&#225;logo del SGC (ciencias de la Tierra y geolog&#237;a aplicada) y el cat&#225;logo de la ANM
+        (industria minera, derechos mineros y regal&#237;as). Cuando una consulta coincide con ambos cat&#225;logos,
+        el sistema presenta informaci&#243;n de las dos entidades con secciones claramente diferenciadas.
+      </div>
+    </div>
+
+    <div class="no-break">
+    <h3 class="sub-subsection-title">3.2.1 Tabla de Triaje &#8212; Mapa de Derivaci&#243;n</h3>
+
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Categor&#237;a de Consulta</th>
+          <th style="width:22%">Palabras Clave Detectadas</th>
+          <th style="width:15%">Entidad Derivada</th>
+          <th style="width:35%">Recurso / Enlace Institucional Presentado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Actividad S&#237;smica</strong></td>
+          <td>sismo, temblor, terremoto, magnitud, epicentro, RSNC</td>
+          <td><span class="badge badge-sgc">SGC</span></td>
+          <td>Portal RSNC &#183; Cat&#225;logo de sismos hist&#243;ricos &#183; Mapa de amenaza s&#237;smica de Colombia</td>
+        </tr>
+        <tr>
+          <td><strong>Cartograf&#237;a y Mapas Geol&#243;gicos</strong></td>
+          <td>mapa, planchas, geolog&#237;a, litolog&#237;a, estratigraf&#237;a, suelos</td>
+          <td><span class="badge badge-sgc">SGC</span></td>
+          <td>GeoVisor SGC &#183; Servicio WMS de cartograf&#237;a geol&#243;gica &#183; Cat&#225;logo de planchas 1:100.000</td>
+        </tr>
+        <tr>
+          <td><strong>Amenazas Volc&#225;nicas</strong></td>
+          <td>volc&#225;n, erupci&#243;n, lahares, Ruiz, Nevado, OVS</td>
+          <td><span class="badge badge-sgc">SGC</span></td>
+          <td>Observatorios vulcanol&#243;gicos &#183; Boletines de actividad &#183; Mapas de amenaza volc&#225;nica</td>
+        </tr>
+        <tr>
+          <td><strong>Fuentes Radiactivas</strong></td>
+          <td>radiaci&#243;n, radioactividad, material radiactivo, fuentes, NORM</td>
+          <td><span class="badge badge-sgc">SGC</span></td>
+          <td>Inventario nacional de fuentes radiactivas &#183; Marco regulatorio &#183; Contacto Grupo de Radiaci&#243;n</td>
+        </tr>
+        <tr>
+          <td><strong>Movimientos en Masa</strong></td>
+          <td>derrumbe, deslizamiento, movimiento masa, remoci&#243;n, ladera</td>
+          <td><span class="badge badge-sgc">SGC</span></td>
+          <td>Sistema de inventario de movimientos en masa (SIMMA) &#183; Mapas de susceptibilidad</td>
+        </tr>
+        <tr>
+          <td><strong>T&#237;tulos y Contratos Mineros</strong></td>
+          <td>t&#237;tulo, concesi&#243;n, contrato, miner&#237;a, registro, RMN, catastro</td>
+          <td><span class="badge badge-anm">ANM</span></td>
+          <td>Sistema AnnA Miner&#237;a &#183; Catastro Minero Colombiano (CMC) &#183; Registro Minero Nacional</td>
+        </tr>
+        <tr>
+          <td><strong>Regal&#237;as e Ingresos</strong></td>
+          <td>regal&#237;as, canon, liquidaci&#243;n, contraprestaci&#243;n, SGR, distribuci&#243;n</td>
+          <td><span class="badge badge-anm">ANM</span></td>
+          <td>Reportes de regal&#237;as ANM &#183; Portal SGR &#183; Estad&#237;sticas de producci&#243;n minera</td>
+        </tr>
+        <tr>
+          <td><strong>Sistema AnnA Miner&#237;a</strong></td>
+          <td>AnnA, sistema, tr&#225;mite, radicaci&#243;n, solicitud, expediente</td>
+          <td><span class="badge badge-anm">ANM</span></td>
+          <td>Portal AnnA Miner&#237;a &#183; Gu&#237;a de usuario AnnA &#183; Mesa de ayuda ANM</td>
+        </tr>
+        <tr>
+          <td><strong>Datos Abiertos / Estad&#237;sticas</strong></td>
+          <td>datos abiertos, estad&#237;sticas, open data, API, CSV, descarga</td>
+          <td><span class="badge badge-shared">SGC / ANM</span></td>
+          <td>datos.gov.co &#8212; Cat&#225;logos SGC y ANM &#183; Datasets con metadatos DCAT &#183; Documentaci&#243;n API</td>
+        </tr>
+        <tr>
+          <td><strong>Patrimonio Geol&#243;gico</strong></td>
+          <td>geoparque, patrimonio, f&#243;sil, museo, colecci&#243;n, geositio</td>
+          <td><span class="badge badge-sgc">SGC</span></td>
+          <td>Inventario de geositios &#183; Museo Geol&#243;gico Colombiano &#183; Red de Geoparques UNESCO</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-caption">Tabla 4. Mapa de triaje inteligente del Asistente Minero Virtual: categor&#237;as, palabras clave y entidades derivadas.</div>
+    </div>
+
+    <div class="alert-box alert-tech no-break">
+      <table class="alert-inner-table">
+        <tr>
+          <td class="alert-icon-cell">
+            <div class="alert-icon">&#226;&#353;&#8482;</div>
+          </td>
+          <td class="alert-content-cell">
+            <div class="alert-label">Nota T&#233;cnica &#8212; L&#243;gica de Derivaci&#243;n</div>
+            <div class="alert-text">
+              El algoritmo de triaje utiliza una funci&#243;n de puntuaci&#243;n ponderada: cada palabra clave
+              detectada en la consulta normalizada suma puntos a la "cuenta" del SGC o de la ANM.
+              La entidad con mayor puntaje es la que encabeza la respuesta. En caso de empate, se
+              presentan ambas entidades en paralelo. Este sistema es extensible: el equipo t&#233;cnico del
+              Ministerio puede agregar nuevas palabras clave al diccionario sin modificar la l&#243;gica
+              de React subyacente.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <h2 class="subsection-title">3.3 Memoria de Sesi&#243;n y Continuidad Conversacional</h2>
+
+    <p>
+      Uno de los diferenciadores m&#225;s importantes del Asistente Minero Virtual frente a chatbots convencionales
+      es su <strong>Memoria de Sesi&#243;n</strong>. Este mecanismo garantiza que el bot mantenga el contexto de
+      toda la conversaci&#243;n desde el momento en que el ciudadano inicia una sesi&#243;n, hasta que cierra la ventana
+      del portal o borra expl&#237;citamente el historial.
+    </p>
+
+    <h3 class="sub-subsection-title">3.3.1 &#191;Qu&#233; es la Memoria de Sesi&#243;n?</h3>
+
+    <p>
+      La memoria de sesi&#243;n es un arreglo de objetos almacenado en el estado del componente React del Asistente.
+      Cada objeto en el arreglo representa un turno conversacional (mensaje del usuario + respuesta del bot)
+      y contiene:
+    </p>
+
+    <ul>
+      <li><strong>El texto original del mensaje:</strong> Tal como fue escrito por el ciudadano.</li>
+      <li><strong>La intenci&#243;n detectada:</strong> La categor&#237;a de consulta identificada por el motor de triaje.</li>
+      <li><strong>La entidad derivada:</strong> SGC, ANM, o ambas.</li>
+      <li><strong>La marca de tiempo:</strong> Hora exacta del intercambio dentro de la sesi&#243;n.</li>
+    </ul>
+
+    <h3 class="sub-subsection-title">3.3.2 Comportamiento Ante Consultas Ambiguas</h3>
+
+    <p>
+      A diferencia de chatbots que se "resetean" o presentan un mensaje de error gen&#233;rico cuando no comprenden
+      una consulta, el Asistente Minero Virtual implementa un <strong>protocolo de aclaraci&#243;n progresiva</strong>:
+    </p>
+
+    <div class="steps-container">
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">1</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Detecci&#243;n de Baja Confianza</div>
+              <div class="step-desc">Si el motor de puntuaci&#243;n no alcanza el umbral m&#237;nimo de confianza (ninguna entidad supera el puntaje m&#237;nimo), el bot activa el protocolo de aclaraci&#243;n en lugar de generar una respuesta vac&#237;a.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">2</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Pregunta de Aclaraci&#243;n Contextual</div>
+              <div class="step-desc">El bot formula una pregunta espec&#237;fica basada en el contexto de los mensajes anteriores. Por ejemplo: <em>"&#191;Su consulta est&#225; relacionada con un mapa geol&#243;gico, un tr&#225;mite de t&#237;tulo minero, o informaci&#243;n sobre regal&#237;as?"</em></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">3</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Uso del Historial para Re-inferir</div>
+              <div class="step-desc">La respuesta del ciudadano a la pregunta de aclaraci&#243;n se procesa junto con los mensajes anteriores del historial, lo que permite al motor re-inferir la intenci&#243;n con mayor precisi&#243;n sin perder el contexto construido.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">4</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Continuaci&#243;n Natural de la Conversaci&#243;n</div>
+              <div class="step-desc">Una vez resuelta la ambig&#252;edad, el Asistente responde a la consulta original enriquecida y contin&#250;a el hilo conversacional de forma natural, sin solicitar que el usuario repita informaci&#243;n ya proporcionada.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="alert-box alert-info no-break">
+      <table class="alert-inner-table">
+        <tr>
+          <td class="alert-icon-cell">
+            <div class="alert-icon">&#226;&#8222;&#185;</div>
+          </td>
+          <td class="alert-content-cell">
+            <div class="alert-label">Privacidad de la Sesi&#243;n</div>
+            <div class="alert-text">
+              El historial de conversaci&#243;n <strong>no se transmite a ning&#250;n servidor</strong> y no es
+              almacenado de forma persistente. Toda la memoria de sesi&#243;n existe &#250;nicamente en la memoria
+              del navegador del ciudadano durante la sesi&#243;n activa. Al cerrar la pesta&#241;a o ventana del
+              portal, el historial se elimina autom&#225;ticamente. El Ministerio de Minas y Energ&#237;a no
+              recopila el contenido de las consultas realizadas al Asistente Virtual.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 class="sub-subsection-title">3.3.3 Control del Historial por el Usuario</h3>
+
+    <p>
+      El ciudadano puede gestionar su historial de conversaci&#243;n en cualquier momento mediante los siguientes controles:
+    </p>
+
+    <ul>
+      <li><span class="tag-inline">LIMPIAR CHAT</span> &#8212; Elimina todos los mensajes del historial visible y reinicia el estado interno del Asistente. El bot saluda nuevamente como si fuera el inicio de la sesi&#243;n.</li>
+      <li><span class="tag-inline">EXPORTAR CONVERSACI&#211;N</span> &#8212; Genera un resumen de la sesi&#243;n en formato texto plano, que puede copiarse al portapapeles o imprimirse mediante el sistema de impresi&#243;n del portal.</li>
+    </ul>
+
+    <hr class="section-divider"/>
+
+
+    <!-- ============================================================
+         SECCI&#211;N 4: EXPORTACI&#211;N E IMPRESI&#211;N
+    ============================================================ -->
+    <div class="page-break"></div>
+    <div class="section-break-header">Secci&#243;n 4 de 5</div>
+
+    <div class="no-break">
+      <div class="section-number-badge">SECCI&#211;N 04</div>
+      <h1 class="section-title">Exportaci&#243;n e Impresi&#243;n de Reportes</h1>
+    </div>
+
+    <p class="section-intro">
+      El Portal Ciudadano implementa un sistema de generaci&#243;n de reportes en PDF que opera &#237;ntegramente
+      desde el navegador, sin requerir la descarga de plantillas desde el servidor ni la instalaci&#243;n de
+      complementos adicionales. El sistema utiliza un <strong>iframe oculto</strong> como motor de renderizado
+      y la API de impresi&#243;n nativa del navegador para producir documentos PDF de alta calidad.
+    </p>
+
+    <h2 class="subsection-title">4.1 Arquitectura del Sistema de Impresi&#243;n</h2>
+
+    <p>
+      El mecanismo de generaci&#243;n de PDF funciona mediante los siguientes componentes t&#233;cnicos orquestados
+      por el componente React de exportaci&#243;n:
+    </p>
+
+    <div class="no-break">
+    <div class="code-block">
+<span class="code-comment">// Fragmento representativo de la l&#243;gica de impresi&#243;n (React)</span>
+
+<span class="code-keyword">const</span> <span class="code-function">imprimirReporte</span> = (tablaNombre, datosTabla) =&gt; {
+
+  <span class="code-comment">// 1. Generar el nombre din&#225;mico del archivo PDF</span>
+  <span class="code-keyword">const</span> nombreArchivo = <span class="code-function">generarNombrePDF</span>(tablaNombre);
+
+  <span class="code-comment">// 2. Construir el HTML del reporte con estilos embebidos</span>
+  <span class="code-keyword">const</span> htmlReporte = <span class="code-function">construirPlantilla</span>(datosTabla, nombreArchivo);
+
+  <span class="code-comment">// 3. Inyectar en el iframe oculto</span>
+  <span class="code-keyword">const</span> iframe = document.<span class="code-function">getElementById</span>(<span class="code-string">'iframe-impresion'</span>);
+  iframe.contentDocument.<span class="code-function">write</span>(htmlReporte);
+  iframe.contentDocument.<span class="code-function">close</span>();
+
+  <span class="code-comment">// 4. Configurar el t&#237;tulo del documento (nombre del PDF)</span>
+  iframe.contentDocument.title = nombreArchivo;
+
+  <span class="code-comment">// 5. Disparar el di&#225;logo de impresi&#243;n del navegador</span>
+  iframe.contentWindow.<span class="code-function">focus</span>();
+  iframe.contentWindow.<span class="code-function">print</span>();
+};
+    </div>
+    </div>
+
+    <div class="alert-box alert-tech no-break">
+      <table class="alert-inner-table">
+        <tr>
+          <td class="alert-icon-cell">
+            <div class="alert-icon">&#226;&#353;&#8482;</div>
+          </td>
+          <td class="alert-content-cell">
+            <div class="alert-label">Nota T&#233;cnica &#8212; Por Qu&#233; un iframe Oculto</div>
+            <div class="alert-text">
+              El iframe oculto (<code>display: none</code> en el DOM principal) act&#250;a como un contexto
+              de renderizado aislado que no interfiere con la interfaz visible del portal. Al inyectar el HTML
+              del reporte en el iframe y llamar a <code>iframe.contentWindow.print()</code>, el navegador
+              abre su di&#225;logo de impresi&#243;n nativo enfocado &#250;nicamente en el contenido del iframe, no en la
+              p&#225;gina completa del portal. Esto permite un control preciso sobre el dise&#241;o del documento
+              impreso sin afectar la experiencia de uso del portal.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <h2 class="subsection-title">4.2 Nomenclatura Din&#225;mica de Archivos PDF</h2>
+
+    <p>
+      Cada reporte generado recibe autom&#225;ticamente un nombre de archivo que refleja el tipo de informaci&#243;n
+      que contiene. El nombre se construye a partir de la tabla o conjunto de datos activo en el momento
+      de pulsar el bot&#243;n de imprimir. La funci&#243;n <span class="kbd">generarNombrePDF()</span> aplica
+      las siguientes reglas de construcci&#243;n:
+    </p>
+
+    <ul>
+      <li>Se toma el nombre descriptivo de la tabla activa (ej. <em>"Datos Abiertos"</em>, <em>"T&#237;tulos Mineros"</em>, <em>"Cat&#225;logo S&#237;smico"</em>).</li>
+      <li>Se convierten los espacios a guiones bajos y se eliminan caracteres especiales.</li>
+      <li>Se antepone el prefijo <span class="kbd">Reporte_</span>.</li>
+      <li>Se agrega la fecha de generaci&#243;n en formato <span class="kbd">AAAA-MM-DD</span>.</li>
+    </ul>
+
+    <table class="content-table no-break">
+      <thead>
+        <tr>
+          <th style="width:40%">Tabla / Conjunto de Datos Activo</th>
+          <th style="width:60%">Nombre del Archivo PDF Generado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Datos Abiertos (vista general)</td>
+          <td><span class="kbd">Reporte_Datos_Abiertos_2026-06-10.pdf</span></td>
+        </tr>
+        <tr>
+          <td>T&#237;tulos Mineros Vigentes &#8212; ANM</td>
+          <td><span class="kbd">Reporte_Titulos_Mineros_Vigentes_2026-06-10.pdf</span></td>
+        </tr>
+        <tr>
+          <td>Cat&#225;logo S&#237;smico Nacional &#8212; SGC</td>
+          <td><span class="kbd">Reporte_Catalogo_Sismico_Nacional_2026-06-10.pdf</span></td>
+        </tr>
+        <tr>
+          <td>Regal&#237;as por Departamento</td>
+          <td><span class="kbd">Reporte_Regalias_Departamento_2026-06-10.pdf</span></td>
+        </tr>
+        <tr>
+          <td>Cartograf&#237;a Geol&#243;gica 1:100.000</td>
+          <td><span class="kbd">Reporte_Cartografia_Geologica_2026-06-10.pdf</span></td>
+        </tr>
+        <tr>
+          <td>Producci&#243;n Minera por Mineral</td>
+          <td><span class="kbd">Reporte_Produccion_Minera_Mineral_2026-06-10.pdf</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-caption">Tabla 5. Ejemplos de nomenclatura din&#225;mica de archivos PDF seg&#250;n la tabla activa.</div>
+
+    <h2 class="subsection-title">4.3 Gu&#237;a Paso a Paso para el Usuario</h2>
+
+    <div class="steps-container">
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">1</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Aplicar Filtros Deseados</div>
+              <div class="step-desc">En el Visor Territorial, configure los filtros de departamento, producto, fecha y organizaci&#243;n para obtener la vista de datos que desea exportar. El reporte incluir&#225; &#250;nicamente los registros visibles despu&#233;s del filtrado.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">2</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Pulsar el Bot&#243;n "Imprimir Resultados"</div>
+              <div class="step-desc">Localice el bot&#243;n <span class="tag-inline">IMPRIMIR RESULTADOS</span> ubicado en la barra de herramientas superior de la tabla de resultados. El bot&#243;n est&#225; disponible siempre que haya al menos un registro visible.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">3</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Verificar el Nombre del Archivo</div>
+              <div class="step-desc">Antes de que aparezca el di&#225;logo de impresi&#243;n, observe el nombre sugerido para el PDF en la barra de t&#237;tulo del di&#225;logo. Este nombre habr&#225; sido generado autom&#225;ticamente seg&#250;n la tabla activa (ver Tabla 5 de este manual).</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">4</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Seleccionar "Guardar como PDF" en el Di&#225;logo</div>
+              <div class="step-desc">En el di&#225;logo de impresi&#243;n del navegador, seleccione <span class="kbd">Guardar como PDF</span> (o <em>"Destination: Save as PDF"</em>) en el men&#250; de impresoras disponibles. Configure el tama&#241;o de p&#225;gina en <strong>A4</strong> y la orientaci&#243;n en <strong>Horizontal (Landscape)</strong> para tablas con muchas columnas.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="step-row">
+        <table class="step-inner">
+          <tr>
+            <td class="step-num-cell"><div class="step-num">5</div></td>
+            <td class="step-content-cell">
+              <div class="step-title">Guardar el Archivo PDF</div>
+              <div class="step-desc">Pulse <span class="kbd">Guardar</span> (o <em>"Save"</em>). El navegador guardar&#225; el PDF en la carpeta de descargas predeterminada de su dispositivo con el nombre generado din&#225;micamente por el portal.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="alert-box alert-warning no-break">
+      <table class="alert-inner-table">
+        <tr>
+          <td class="alert-icon-cell">
+            <div class="alert-icon">!</div>
+          </td>
+          <td class="alert-content-cell">
+            <div class="alert-label">Advertencia &#8212; Configuraci&#243;n de Impresi&#243;n</div>
+            <div class="alert-text">
+              Para garantizar que el PDF incluya los colores institucionales, los encabezados de tabla y
+              los logos de las entidades, active la opci&#243;n <strong>"Imprimir fondos gr&#225;ficos"</strong>
+              (o <em>"Background graphics"</em>) en las opciones avanzadas del di&#225;logo de impresi&#243;n.
+              Sin esta opci&#243;n habilitada, el PDF se generar&#225; sin colores de fondo, lo que puede dificultar
+              la lectura del encabezado de la tabla y los indicadores de entidad (SGC / ANM).
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <hr class="section-divider"/>
+
+
+    <!-- ============================================================
+         SECCI&#211;N 5: PREGUNTAS FRECUENTES
+    ============================================================ -->
+    <div class="page-break"></div>
+    <div class="section-break-header">Secci&#243;n 5 de 5</div>
+
+    <div class="no-break">
+      <div class="section-number-badge">SECCI&#211;N 05</div>
+      <h1 class="section-title">Preguntas Frecuentes y Soporte</h1>
+    </div>
+
+    <h2 class="subsection-title">5.1 Preguntas Frecuentes</h2>
+
+    <h3 class="sub-subsection-title">&#191;Por qu&#233; no puedo hacer clic en un bot&#243;n de "Descargar" los datos?</h3>
+    <p>
+      El Portal Ciudadano adopta la <strong>pol&#237;tica de Visualizaci&#243;n Inmediata</strong> (Secci&#243;n 1.2), que
+      elimina los botones de descarga directa de archivos desde el servidor. Toda la informaci&#243;n se visualiza
+      en pantalla. Si necesita guardar los datos, utilice la funci&#243;n <span class="tag-inline">IMPRIMIR RESULTADOS</span>
+      para generar un PDF local desde su navegador.
+    </p>
+
+    <h3 class="sub-subsection-title">&#191;El Asistente Minero Virtual guarda mis preguntas?</h3>
+    <p>
+      No. El historial de conversaci&#243;n se almacena &#250;nicamente en la memoria del navegador durante la sesi&#243;n
+      activa y se elimina al cerrar la pesta&#241;a. El Ministerio de Minas y Energ&#237;a no recopila ni almacena
+      el contenido de las consultas realizadas al Asistente Virtual.
+    </p>
+
+    <h3 class="sub-subsection-title">&#191;Por qu&#233; el Asistente me hace preguntas adicionales en vez de responder directamente?</h3>
+    <p>
+      Cuando la consulta es ambigua o no contiene suficientes palabras clave para identificar la intenci&#243;n
+      con certeza, el Asistente activa su protocolo de aclaraci&#243;n progresiva (Secci&#243;n 3.3.2). Esto es
+      intencional: el bot prefiere preguntar y aclarar antes que dar una respuesta incorrecta o enviar
+      al ciudadano a la entidad equivocada.
+    </p>
+
+    <h3 class="sub-subsection-title">&#191;Los datos del portal est&#225;n actualizados en tiempo real?</h3>
+    <p>
+      Los datos se sincronizan con los cat&#225;logos del SGC y la ANM cada vez que el usuario carga o recarga
+      el portal. Una vez cargados en la sesi&#243;n, los filtros operan sobre la instant&#225;nea de datos en memoria.
+      Para obtener datos con la &#250;ltima actualizaci&#243;n disponible, recargue la p&#225;gina del portal.
+    </p>
+
+    <h3 class="sub-subsection-title">&#191;Qu&#233; navegadores son compatibles con el portal?</h3>
+    <p>
+      El portal es compatible con Google Chrome 110+, Microsoft Edge 110+, Mozilla Firefox 110+ y
+      Safari 16+. No es compatible con Internet Explorer. Para la funci&#243;n de generaci&#243;n de PDF,
+      se recomienda Google Chrome o Microsoft Edge por sus capacidades avanzadas de impresi&#243;n.
+    </p>
+
+    <h3 class="sub-subsection-title">&#191;Puedo usar el portal en mi celular o tableta?</h3>
+    <p>
+      S&#237;. El panel de filtros del Visor Territorial y el Asistente Minero Virtual est&#225;n dise&#241;ados con
+      controles espaciosos y t&#225;ctiles que funcionan correctamente en dispositivos m&#243;viles. Sin embargo,
+      la funci&#243;n de generaci&#243;n de PDF puede tener limitaciones en algunos navegadores m&#243;viles; se
+      recomienda usar un dispositivo de escritorio para la exportaci&#243;n de reportes.
+    </p>
+
+    <h2 class="subsection-title">5.2 Canales de Soporte Institucional</h2>
+
+    <table class="content-table no-break">
+      <thead>
+        <tr>
+          <th style="width:25%">Canal</th>
+          <th style="width:40%">Contacto</th>
+          <th style="width:35%">Horario de Atenci&#243;n</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MinMinas &#8212; Mesa de Ayuda</strong></td>
+          <td>atencionalciudadano@minminas.gov.co</td>
+          <td>Lunes a viernes, 8:00 a.m. &#8211; 5:00 p.m. (hora Colombia)</td>
+        </tr>
+        <tr>
+          <td><strong>SGC &#8212; Soporte T&#233;cnico</strong></td>
+          <td>servicioalciudadano@sgc.gov.co<br/>+57 (1) 220-0200</td>
+          <td>Lunes a viernes, 8:00 a.m. &#8211; 5:00 p.m.</td>
+        </tr>
+        <tr>
+          <td><strong>ANM &#8212; Mesa de Servicios</strong></td>
+          <td>servicioalciudadano@anm.gov.co<br/>L&#237;nea gratuita: 01 8000 910 515</td>
+          <td>Lunes a viernes, 8:00 a.m. &#8211; 5:00 p.m.</td>
+        </tr>
+        <tr>
+          <td><strong>PQRS en l&#237;nea</strong></td>
+          <td>www.minminas.gov.co/pqrs</td>
+          <td>24 horas, 7 d&#237;as a la semana</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-caption">Tabla 6. Canales de soporte y atenci&#243;n al ciudadano del Ministerio de Minas y Energ&#237;a, SGC y ANM.</div>
+
+    <div class="alert-box alert-success no-break">
+      <table class="alert-inner-table">
+        <tr>
+          <td class="alert-icon-cell">
+            <div class="alert-icon">&#226;&#339;&#8220;</div>
+          </td>
+          <td class="alert-content-cell">
+            <div class="alert-label">Recursos Adicionales</div>
+            <div class="alert-text">
+              Para consultar el marco normativo del sector minero, los decretos reglamentarios de regal&#237;as,
+              las resoluciones de la ANM y los informes t&#233;cnicos del SGC, visite los sitios web institucionales:
+              <strong>www.minminas.gov.co</strong> &#183; <strong>www.sgc.gov.co</strong> &#183; <strong>www.anm.gov.co</strong>.
+              Los datos abiertos del sector est&#225;n disponibles en el Cat&#225;logo Nacional de Datos Abiertos:
+              <strong>www.datos.gov.co</strong>.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <!-- ============================================================
+         DOCUMENT FOOTER
+    ============================================================ -->
+    <div class="doc-footer">
+      <table class="doc-footer-table">
+        <tr>
+          <td class="doc-footer-left" style="width:40%">
+            Manual del Usuario &#8212; Portal Ciudadano M&#243;dulo Sector Minero<br/>
+            Ministerio de Minas y Energ&#237;a &#183; Rep&#250;blica de Colombia
+          </td>
+          <td class="doc-footer-center" style="width:30%">
+            Versi&#243;n 2.0 &#183; Junio 2026<br/>
+            Documento de Uso P&#250;blico
+          </td>
+          <td class="doc-footer-right" style="width:30%">
+            www.minminas.gov.co<br/>
+            Bogot&#225; D.C., Colombia
+          </td>
+        </tr>
+      </table>
+      <div class="footer-accent-bar"></div>
+    </div>
+
+  </div><!-- /doc-body -->
+</div><!-- /page-wrapper -->
+
+</body>
+</html>

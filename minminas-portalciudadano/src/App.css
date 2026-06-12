@@ -1,0 +1,15 @@
+.App {
+  text-align: left;
+}
+
+.App-header {
+  min-height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.App-footer {
+  padding: 2rem;
+  background-color: #f4f4f4;
+  text-align: center;
+}

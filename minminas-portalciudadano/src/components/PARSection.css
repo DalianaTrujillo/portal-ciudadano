@@ -1,0 +1,131 @@
+.par-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.par-container {
+  background-color: #f8f9fa; /* Contenedor gris muy claro */
+  border-radius: var(--radius-global);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.par-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.par-tab-btn {
+  background-color: #ffffff;
+  color: #4a5568;
+  border: 1px solid #e2e8f0; /* Borde gris muy sutil */
+  border-radius: var(--radius-global);
+  padding: 18px 24px;
+  text-align: left;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.par-tab-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.par-tab-btn.active {
+  background-color: var(--azul-institucional); /* Azul oscuro */
+  color: #ffffff;
+  border-color: var(--azul-institucional);
+}
+
+.par-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.par-card {
+  background-color: #ffffff; /* Tarjeta blanca */
+  border-radius: var(--radius-global);
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 100%;
+}
+
+.par-region-title {
+  color: var(--azul-institucional); /* Título en azul */
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 20px;
+}
+
+.par-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex-grow: 1;
+}
+
+.par-details-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.par-icon-wrapper {
+  background-color: #e0f2fe; /* Fondo sutil para iconos */
+  color: var(--azul-institucional); /* Color de icono azul */
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-global);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.par-details-list span {
+  font-size: 16px;
+  color: #4a5568;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.par-action-btn {
+  background-color: var(--azul-institucional); /* Botón azul */
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-global);
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 800;
+  width: 100%; /* Botón ancho */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: auto;
+}
+
+.par-action-btn:hover {
+  background-color: #004a96;
+}
+
+@media (max-width: 968px) {
+  .par-container {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}

@@ -1,0 +1,121 @@
+.proyectos-seccion-clean {
+  background: #F8F9FA;
+  padding: 100px 0;
+}
+
+.section-header-centered {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.eyebrow-blue {
+  font-size: 11px;
+  font-weight: 800;
+  color: #3366CC;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.section-header-centered h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--azul-institucional);
+}
+
+.section-header-centered p {
+  font-size: 16px;
+  color: #718096;
+  margin-top: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects-grid-minimal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.project-card-v2 {
+  background: #fff;
+  border-radius: var(--radius-global);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #E2E8F0;
+}
+
+.project-card-v2:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.project-card-img {
+  height: 180px;
+  overflow: hidden;
+}
+
+.project-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card-content {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.project-card-content h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--azul-institucional);
+  margin-bottom: 12px;
+}
+
+.project-card-content p {
+  font-size: 14px;
+  color: #718096;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.project-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-project-pill {
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+
+.btn-project-pill:hover {
+  filter: brightness(1.1);
+}
+
+.btn-green-pill { background: #2D6A4F; }
+.btn-blue-pill { background: #3366CC; }
+.btn-black-pill { background: #1A1A1A; }
+
+@media (max-width: 1024px) {
+  .projects-grid-minimal {
+    grid-template-columns: 1fr;
+  }
+}

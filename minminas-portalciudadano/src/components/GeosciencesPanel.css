@@ -1,0 +1,714 @@
+.sgc-reports-row {
+  overflow-x: auto;
+  gap: 24px;
+  display: flex;
+  padding-bottom: 8px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  position: relative;
+}
+.sgc-reports-row::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+/* Gradiente visual para indicar scroll a la derecha */
+.sgc-reports-row::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to left, rgba(10,25,47,0.85) 60%, rgba(10,25,47,0) 100%);
+  z-index: 1;
+  transition: opacity 0.3s;
+}
+/* Cuando el scroll está al final, ocultar el gradiente (solo posible con ayuda JS, pero se deja preparado) */
+.sgc-reports-row.hide-fade::after {
+  opacity: 0;
+}
+/* Ocultar scroll horizontal en el bloque de reportes SGC */
+.sgc-reports-row {
+  overflow-x: auto;
+  gap: 24px;
+  display: flex;
+  padding-bottom: 8px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.sgc-reports-row::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+/* ── Cifras y Estadísticas del Sector ───────────────────────────── */
+.stats-section {
+  margin: 80px 0 100px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.stats-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(32,58,104,0.08);
+  padding: 36px 28px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.stats-card-title {
+  color: #203A68;
+  font-size: 1.18rem;
+  font-weight: 900;
+  margin-bottom: 28px;
+}
+/* Barras */
+.bar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.bar-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.bar-label {
+  width: 110px;
+  color: #203A68;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.bar-track {
+  flex: 1;
+  background: #e5e7eb;
+  border-radius: 8px;
+  height: 18px;
+  margin-left: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.bar-fill {
+  background: #eab308;
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.5s;
+}
+.bar-pct {
+  position: absolute;
+  right: 12px;
+  color: #203A68;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+/* Donut chart */
+.donut-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.donut-chart {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 18px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #203A68;
+  box-shadow: 0 2px 8px rgba(32,58,104,0.06);
+}
+.donut-legend {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.legend-row {
+  display: flex;
+  align-items: center;
+  font-size: 0.98rem;
+  color: #203A68;
+  font-weight: 700;
+  gap: 10px;
+}
+.legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.geosciences-panel {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  padding: 100px 0;
+}
+
+.monitoring-section {
+  margin-bottom: 120px;
+}
+
+.eyebrow-yellow {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #EDB600 !important; /* Dorado oficial forzado */
+  text-transform: uppercase !important;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.section-header-centered {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header-left {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.title-white {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 2.5rem !important; /* Forzar tamaño oficial */
+  font-weight: 900 !important; /* Black */
+  color: #FFFFFF !important; /* Blanco puro obligatorio */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.subtitle-white {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px !important;
+  color: rgba(255, 255, 255, 0.8) !important; /* 80% opacidad blanca requerida */
+  margin-top: 12px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ── Carrusel cíclico ──────────────────────────────────────────── */
+.gp-carousel {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.gp-carousel-nav {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  color: #EDB600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.18s ease;
+}
+
+.gp-carousel-nav:hover {
+  background: rgba(237, 182, 0, 0.15);
+  border-color: #EDB600;
+  transform: scale(1.08);
+}
+
+.gp-carousel-stage {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Slide: key prop forces remount → CSS animation replays on every change */
+.gp-slide {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: gpFadeIn 0.35s ease both;
+}
+
+@keyframes gpFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.gp-slide-icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(237, 182, 0, 0.1);
+  border: 1.5px solid rgba(237, 182, 0, 0.28);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #EDB600;
+  flex-shrink: 0;
+}
+
+.gp-slide-counter {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: 0.14em;
+  margin: 0;
+}
+
+.gp-slide-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.gp-slide-desc {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+  max-width: 100%;
+  margin: 0;
+}
+
+.gp-slide-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #EDB600;
+  color: #203A68;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+  margin-top: 4px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.gp-slide-link:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Dots indicator */
+.gp-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.gp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, width 0.22s ease, border-radius 0.22s ease;
+}
+
+.gp-dot.is-active {
+  background: #EDB600;
+  width: 24px;
+  border-radius: 4px;
+}
+
+
+  grid-column: span 2;
+  grid-row: span 2;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 400px;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.glass-card-main:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.gcb-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0 0 24px 0;
+  letter-spacing: -1px;
+}
+
+.gcb-desc {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 90%;
+}
+
+.gcb-actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gcb-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #EDB600;
+  color: #203A68;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.gcb-btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.gcb-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.gcb-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.glass-card-tech {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-global);
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.glass-card-tech:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.glass-card-static-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+}
+
+.glass-card-tech:hover .glass-card-static-content {
+  transform: translateY(-120%);
+  opacity: 0;
+}
+
+.glass-icon-tech {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.glass-label-tech {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #EDB600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.glass-card-hover-content {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+}
+
+.glass-card-tech:hover .glass-card-hover-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.glass-desc-tech {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+}
+
+.btn-glass-tech {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1.5px solid #EDB600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Library Section */
+.library-section {
+  margin-bottom: 100px;
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.pub-card {
+  background: #fff;
+  border-radius: var(--radius-global);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pub-badge {
+  background: #E8F5E9;
+  color: #2D6A4F;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.pub-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--azul-institucional);
+  line-height: 1.4;
+}
+
+.btn-pub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #203A68;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.btn-pub-link:hover {
+  background: #EDB600;
+  color: #203A68;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(237, 182, 0, 0.3);
+}
+
+.pub-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #f0f4f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #718096;
+}
+
+.pub-meta,
+.pub-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nuclear-banner-dark {
+  background: #1A1A1A;
+  border-radius: var(--radius-global);
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  color: #fff;
+}
+
+.n-icon-container {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-white-action {
+  background: #fff;
+  color: #1A1A1A;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.btn-white-action:hover {
+  background: #EDB600;
+  color: #1A1A1A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(237, 182, 0, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .publications-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .gp-carousel {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .gp-slide {
+    padding: 24px 20px;
+  }
+  .gp-slide-title {
+    font-size: 1.25rem;
+  }
+}

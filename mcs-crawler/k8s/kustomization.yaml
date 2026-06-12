@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: minminas-knowledge
+
+resources:
+  - deployment.yaml
+  - configmap.yaml
+  - secret.yaml
+  - hpa.yaml
+
+commonLabels:
+  app.kubernetes.io/name: mcs-crawler
+  app.kubernetes.io/component: crawler
+  app.kubernetes.io/part-of: minminas-portal-ciudadano

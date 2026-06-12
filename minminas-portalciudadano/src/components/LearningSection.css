@@ -1,0 +1,113 @@
+.learning-section {
+  background: #fff;
+  padding: 80px 0 120px;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.learning-flip-card {
+  background-color: transparent;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.learning-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.learning-flip-card:hover .learning-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.learning-flip-card-front, .learning-flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-global);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.learning-flip-card-front {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.learning-flip-card-front span {
+  font-size: 15px;
+  font-weight: 800;
+  margin-top: 16px;
+}
+
+.learning-flip-card-back {
+  background: #ffffff;
+  transform: rotateY(180deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.learning-flip-card-back p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--azul-institucional);
+  margin: 0;
+}
+
+/* Colors Configuration */
+/* Card 1: Amarillo */
+.card-color-1 .learning-flip-card-front {
+  background-color: var(--dorado-principal);
+  color: var(--azul-institucional);
+}
+.card-color-1 .learning-flip-card-back {
+  border: 2px solid var(--dorado-principal);
+}
+
+/* Card 2: Verde Oscuro */
+.card-color-2 .learning-flip-card-front {
+  background-color: #13402E;
+  color: #ffffff;
+}
+.card-color-2 .learning-flip-card-back {
+  border: 2px solid #13402E;
+}
+
+/* Card 3: Azul */
+.card-color-3 .learning-flip-card-front {
+  background-color: var(--azul-institucional);
+  color: #ffffff;
+}
+.card-color-3 .learning-flip-card-back {
+  border: 2px solid var(--azul-institucional);
+}
+
+/* Card 4: Verde de Portal (#2D6A4F) */
+.card-color-4 .learning-flip-card-front {
+  background-color: #2D6A4F;
+  color: #ffffff;
+}
+.card-color-4 .learning-flip-card-back {
+  border: 2px solid #2D6A4F;
+}
+
+@media (max-width: 968px) {
+  .learning-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

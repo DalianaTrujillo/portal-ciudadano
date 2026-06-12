@@ -1,0 +1,142 @@
+.participacion-section {
+  background: var(--gris-bg);
+}
+
+.participation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.participation-card {
+  background: #fff;
+  border-radius: var(--radius-global);
+  padding: 40px 32px;
+  border: 1px solid #eef2f7;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.participation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  border-color: var(--verde-claro);
+}
+
+.participation-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-global);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.p-blue   { background: #E3F2FD; color: var(--anm-blue); }
+.p-green  { background: #E8F5E9; color: var(--verde); }
+.p-yellow { background: #FFF9E0; color: var(--amarillo); }
+
+.participation-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--verde-oscuro);
+  margin-bottom: 12px;
+}
+
+.participation-card p {
+  font-size: 14px;
+  color: var(--gris-text);
+  line-height: 1.6;
+}
+
+/* ── Tarjeta FAQ ─────────────────────────────────────── */
+.pc-faq {
+  text-align: left;
+  align-items: stretch;
+}
+
+.pc-faq h3 {
+  text-align: center;
+}
+
+.pc-faq .pc-card-desc {
+  text-align: center;
+  width: 100%;
+}
+
+/* Hovear la tarjeta FAQ no la desplace (el acordeón cambia la altura) */
+.pc-faq:hover {
+  transform: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* ── Acordeón ────────────────────────────────────────── */
+.pc-accordion {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  width: 100%;
+  border-top: 1px solid rgba(32, 58, 104, 0.09);
+}
+
+.pc-faq-item {
+  border-bottom: 1px solid rgba(32, 58, 104, 0.09);
+}
+
+.pc-faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #203A68;
+  line-height: 1.45;
+  transition: color 0.18s ease;
+}
+
+.pc-faq-trigger:hover {
+  color: #EDB600;
+}
+
+.pc-faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.22s ease;
+  color: #94A3B8;
+}
+
+.pc-faq-item.is-open .pc-faq-chevron {
+  transform: rotate(180deg);
+  color: #203A68;
+}
+
+.pc-faq-body {
+  padding: 2px 0 14px;
+}
+
+.pc-faq-body p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.77rem;
+  color: #64748B;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 968px) {
+  .participation-grid {
+    grid-template-columns: 1fr;
+  }
+}

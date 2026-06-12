@@ -1,0 +1,88 @@
+.aliados-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 10px 0; /* Reducido de 30px */
+  max-height: 60px; /* Limitado según instrucción */
+  position: relative;
+  border-top: 1px solid #EDF2F7;
+  border-bottom: 1px solid #EDF2F7;
+}
+
+.aliados-track {
+  display: flex;
+  width: calc(220px * 21); /* 7 entidades * 3 sets * 220px */
+  animation: scroll-infinite 35s linear infinite;
+}
+
+.aliado-slide {
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.aliado-item-flex {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espaciado uniforme entre icono y texto */
+  color: #686868; /* Gris de soporte oficial requerido */
+  transition: color 0.4s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.aliado-icon-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aliado-name-text {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800; /* Bold */
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Efecto Hover: Cambio al color institucional de cada entidad */
+.aliado-slide:hover .aliado-item-flex {
+  color: var(--hover-color);
+  transform: scale(1.05);
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-220px * 7)); /* Se desplaza un set completo de 7 */
+  }
+}
+
+/* Pausa automática en hover para accesibilidad */
+.aliados-carousel-container:hover .aliados-track {
+  animation-play-state: paused;
+}
+
+/* Efecto de degradado lateral para integración premium */
+.aliados-carousel-container::before,
+.aliados-carousel-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.aliados-carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+}
+
+.aliados-carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
+}

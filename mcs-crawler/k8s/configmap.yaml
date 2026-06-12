@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crawler-config
+  namespace: minminas-knowledge
+data:
+  DB_HOST: "postgres-service"
+  DB_PORT: "5432"
+  DB_NAME: "knowledge_db"
+  GIN_MODE: "release"
+  CRAWLER_START_URL: "http://portal-ciudadano:8081"
+  CRAWLER_SAME_DOMAIN_ONLY: "true"
+  CRAWLER_INTERVAL_HOURS: "6"
+  CRAWLER_MAX_PAGES: "1000"
+  CRAWLER_RATE_LIMIT_MS: "500"
+  CRAWLER_USER_AGENT: "MCS-Crawler/1.0 (+https://minminas.gov.co)"
+  CRAWLER_DOWNLOAD_DIR: "/app/downloads"

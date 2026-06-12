@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.90ec2487.css",
+    "main.js": "/static/js/main.1cb94faa.js",
+    "static/media/choco_education_project.png": "/static/media/choco_education_project.656cc6e2549cb4b26388.png",
+    "static/media/boyaca_road_project.png": "/static/media/boyaca_road_project.1190babc969912495b20.png",
+    "static/media/rondas_proj.png": "/static/media/rondas_proj.c4f8cf5add167811e406.png",
+    "static/media/caqueta_health_project.png": "/static/media/caqueta_health_project.cfc349717f7a4dca1ccd.png",
+    "static/media/geosciences_bg.png": "/static/media/geosciences_bg.4b8f7bf8b82e4419e1a6.png",
+    "static/media/atlas_proj.png": "/static/media/atlas_proj.a42bf07a6dc275a3bef7.png",
+    "static/media/guajira_water_project.png": "/static/media/guajira_water_project.400630846e89288aff4a.png",
+    "static/media/labs_proj.png": "/static/media/labs_proj.002f8e16ce13eef2a7ed.png",
+    "static/media/Energía Amarillo.png": "/static/media/Energía Amarillo.b194680360a56ff46175.png",
+    "index.html": "/index.html",
+    "main.90ec2487.css.map": "/static/css/main.90ec2487.css.map",
+    "main.1cb94faa.js.map": "/static/js/main.1cb94faa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.90ec2487.css",
+    "static/js/main.1cb94faa.js"
+  ]
+}

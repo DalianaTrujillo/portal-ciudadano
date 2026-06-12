@@ -1,0 +1,239 @@
+.regiones-section {
+  background: #fff;
+  padding: 100px 0;
+}
+
+.regiones-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.region-card {
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-global);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.region-card:hover {
+  transform: scale(1.02);
+}
+
+.region-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+}
+
+.region-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--azul-institucional);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: var(--radius-global);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+
+.region-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.region-card:hover .region-overlay {
+  opacity: 1;
+}
+
+.btn-view-region {
+  background: #fff;
+  color: var(--azul-institucional);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-view-region:hover {
+  background: #f0f4f8;
+  transform: scale(1.03);
+}
+
+/* Modal styles */
+.region-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.region-modal-content {
+  background: #fff;
+  width: 550px;
+  max-width: 90%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+.close-modal-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.modal-header-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.modal-header-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+}
+
+.modal-header-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  background: var(--azul-institucional);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: var(--radius-global);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+
+.modal-body-content {
+  padding: 32px;
+}
+
+.modal-body-content h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--azul-institucional);
+  margin-bottom: 8px;
+}
+
+.modal-region-desc {
+  font-size: 14px;
+  color: #4A5568;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.modal-projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.modal-projects-list li {
+  font-size: 14px;
+  color: #2D3748;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf2f7;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.4;
+}
+
+.modal-projects-list li::before {
+  content: '✦';
+  color: #EDB600;
+  font-weight: bold;
+}
+
+.btn-modal-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--azul-institucional);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-action:hover {
+  background: #EDB600;
+  color: var(--azul-institucional);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(237, 182, 0, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 968px) {
+  .regiones-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,504 @@
+.hero-fullscreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: -80px; /* Ajuste si el header es fixed/absolute, depende del portal. Asumimos que toma toda la pantalla */
+}
+
+/* Carrusel y Fondo */
+.hero-carousel-bg {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 0 80px 0;
+  transition: background 0.8s ease;
+  overflow: hidden;
+}
+
+.hero-pattern-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 16v8m-4-4h8' stroke='rgba(255,255,255,0.08)' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Layout de Contenido Principal */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 64px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Texto de la Diapositiva */
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero-highlight {
+  color: var(--amarillo, #FFD700);
+}
+
+.hero-description {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0;
+}
+
+.hero-btn-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.btn-hero-solid {
+  background-color: var(--amarillo, #FFD700);
+  color: var(--azul-institucional);
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-hero-solid:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hero-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-hero-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-hero-solid-blue {
+  background-color: var(--azul-institucional);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-hero-solid-blue:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hero-outline-green {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #2D6A4F;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-hero-outline-green:hover {
+  background-color: rgba(45, 106, 79, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Formulario Flotante */
+.floating-form-card {
+  background: rgba(10, 25, 47, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-global);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-select, .form-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'Nunito Sans', sans-serif;
+  outline: none;
+}
+
+.form-select option {
+  color: var(--azul-institucional); /* Options need dark color on some OS to be visible */
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-select:focus, .form-input:focus {
+  border-color: var(--amarillo, #FFD700);
+}
+
+.btn-form-submit {
+  width: 100%;
+  background-color: var(--amarillo, #FFD700);
+  color: var(--azul-institucional);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-form-submit:hover {
+  opacity: 0.9;
+}
+
+.btn-form-submit-blue {
+  width: 100%;
+  background-color: var(--azul-institucional);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-form-submit-blue:hover {
+  opacity: 0.9;
+}
+
+.btn-form-submit-green {
+  width: 100%;
+  background-color: #2D6A4F;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-form-submit-green:hover {
+  opacity: 0.9;
+}
+
+/* ── Gráfico de Pastel Hero ─────────────────────────────────────── */
+.hero-chart-card {
+  background: rgba(10, 25, 47, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-global, 12px);
+  padding: 28px 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hero-chart-title {
+  color: #ffffff;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  margin: 0 0 18px;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.hero-chart-body {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-chart-svg {
+  width: 252px;
+  height: 252px;
+  max-width: 100%;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.4));
+}
+
+.hero-chart-legend {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 7px 10px;
+  border-radius: 7px;
+  transition: background 0.15s;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.hero-chart-legend-item:hover,
+.hero-chart-legend-item.is-active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-chart-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hero-chart-lbl {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-chart-pct {
+  font-size: 13px;
+  font-weight: 700;
+  color: #EDB600;
+}
+
+/* Controles Carrusel */
+.hero-controls {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 2;
+}
+
+.hero-control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.hero-control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+}
+
+/* ── Noticias Recientes ────────────────────────────────────────────── */
+.hero-news-section {
+  background-color: #F0F4F8;
+  padding: 56px 0 64px;
+  border-top: 3px solid #EDB600;
+}
+
+.hero-news-header {
+  margin-bottom: 32px;
+}
+
+.hero-news-heading {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #203A68;
+  margin: 0;
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.hero-news-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: #EDB600;
+  border-radius: 2px;
+}
+
+.hero-news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.news-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(32, 58, 104, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(32, 58, 104, 0.15);
+}
+
+.news-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #C8D1DF;
+  flex-shrink: 0;
+}
+
+.news-card-body {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.news-card-date {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8FA0B8;
+  letter-spacing: 0.3px;
+}
+
+.news-card-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #203A68;
+  line-height: 1.48;
+  margin: 0;
+  flex: 1;
+}
+
+.news-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #EDB600;
+  text-decoration: none;
+  margin-top: 6px;
+  transition: color 0.15s, gap 0.15s;
+}
+
+.news-card-link:hover {
+  color: #203A68;
+  gap: 9px;
+}
+
+.news-card-arrow {
+  display: inline-block;
+  transition: transform 0.15s;
+}
+
+.news-card-link:hover .news-card-arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 40px;
+  }
+  .hero-news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-news-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-btn-group {
+    flex-direction: column;
+  }
+}

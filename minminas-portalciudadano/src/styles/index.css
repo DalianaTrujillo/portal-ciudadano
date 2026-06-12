@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+:root {
+  /* Official Palette - Refined Technical Look (Opción 1) */
+  --azul-institucional: #203A68;
+  --dorado-principal: #EDB600;
+  --amarillo-destacado: #FEC707;
+  --gris-soporte-1: #4E4D4D;
+  --gris-soporte-2: #686868;
+
+  /* Legacy overrides mapped to new palette */
+  --anm-blue: var(--azul-institucional);
+  --amarillo: var(--dorado-principal);
+  --amarillo-hover: var(--amarillo-destacado);
+  --gris-bg: #F8F9FA;
+  --gris-text: var(--gris-soporte-1);
+  --gris-border: #E2E8F0;
+  --verde: #2D6A4F; /* Keeping for other non-conflicting parts */
+  --verde-oscuro: #1B4332;
+
+  --radius: 8px;
+  --radius-global: 8px;
+  --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--gris-soporte-1);
+  background-color: var(--gris-bg);
+  line-height: 1.6;
+  font-size: 20px;
+}
+
+h1, .title-main {
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--azul-institucional);
+}
+
+h2, .subtitle-main {
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--azul-institucional);
+}
+
+p {
+  font-size: 20px;
+}
+
+button, .btn, [class*="btn-"] {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-radius: var(--radius-global) !important;
+}
+
+.card, [class*="-card"], [class*="card-"] {
+  border-radius: var(--radius-global) !important;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-header .eyebrow {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--anm-blue);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--anm-blue);
+}
+
+.section-header p {
+  font-size: 16px;
+  color: var(--gris-text);
+  margin-top: 12px;
+  max-width: 700px;
+}
